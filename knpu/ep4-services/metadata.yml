@@ -1,0 +1,50 @@
+title: Symfony: Level up with Services and the Container
+
+summary: |
+    Our app is coming to life! Thanks to the [Doctrine Course](https://knpuniversity.com/screencast/symfony-doctrine)
+    we have a rich data model. And after the course on [Configuration](https://knpuniversity.com/screencast/symfony-fundamentals),
+    well, using and configuring services is simple.
+
+    Now it's time to level-up with those *services*. These
+    puppies are the backbone of what makes Symfony special & fast.
+    It's also the reason that organizing your code into reusable
+    chunks is so easy. But beyond that, once you understand how
+    services and the service container work, you'll be absolutely
+    unstoppable inside of Symfony. Yep, let's do that:
+
+    * Understanding what a service is
+    * Listing, fetching and using existing services
+    * Creating your own custom services
+    * Registering your service
+    * Checking out the (mystical) dumped container
+    * Configuration Parameters
+    * Dependency Injection Tags
+
+    This is the episode where it all starts coming together. Let's go!
+
+illustration: sf-ep4.png
+
+tuts_hero:
+# todo - fill in the steps properly
+    start_step: join-join-query-to-order-by-relation
+    finish_step: twigextension-mark-as-safe
+
+chapters:
+    services-save-the-world:
+        video_key: 162382807
+    create-service-class:
+        video_key: 162384766
+    the-dreaded-dependency-injection:
+        video_key: 162390196
+    type-hinting-arguments:
+        video_key: 162533237
+    register-service:
+        video_key: 162405497
+    inject-cache-service:
+        video_key: 162405792
+    create-twig-extension:
+        video_key: 162406502 
+    tagging-services:
+        video_key: 162408095 
+    autowiring-madness:
+        video_key: 162407924 

@@ -1,0 +1,68 @@
+title: Symfony Forms: Build, Render & Conquer!
+
+summary: |
+    Ah, forms: one of the most *powerful* - but sometimes
+    hated - features in all of Symfony. Here's the deal: forms
+    are just plain hard. You need to manage the HTML form elements,
+    validation, data transformation and a lot more. The Form
+    component is probably the most complex part of Symfony. But
+    the more you work with it, the more you'll like it.
+
+    In this episode, we'll learn how to use Symfony forms to
+    handle simple situations as well as some complex setups.
+    Most importantly, I'll show you how to avoid the pitalls
+    that many developers often fall into that causes the form
+    component to spiral into complexity hell. The form system
+    is a tool: in this tutorial, we'll put the joy back into it:
+
+    * Creating a basic form
+    * Basic form rendering and customization
+    * Handling a form submit
+    * Backing your form with an entity
+    * Adding validation
+    * Form field guessing
+    * Pre-filling with default data
+    * Creating a form "type" class
+    * Using forms to handle an API POST request
+    * Understanding how forms *really* work
+    * Flash messages
+
+    ... and form tips and tricks stuck in all over!
+
+illustration: sf-ep5.png
+
+tuts_hero:
+    start_step: updates-starting-admin-section
+    finish_step: edit-use-shared-layout
+
+chapters:
+    the-form-type-class:
+        video_key: 168703880
+    render-form-bootstrap:
+        video_key: 168704822
+    process-that-form:
+        video_key: 168704292
+    data-class-type-guessing:
+        video_key: 168984252
+    save-redirect-set-flash:
+        video_key: 168984420
+    field-types-and-options:
+        video_key: 168984748
+    custom-entity-type-query:
+        video_key: 168986055
+    date-picker-field:
+        video_key: 168987006
+    date-format-sanity-validation:
+        video_key: 168987213
+    form-rendering-and-variables:
+        video_key: 169009133
+    disable-html5-validation:
+        video_key: 169008268
+    beautiful-form-validation:
+        video_key: 169009026
+    changing-validation-messages:
+        video_key: 169010294
+    easy-edit-form:
+        video_key: 169011242
+    form-template-include:
+        video_key: 169150919

@@ -1,0 +1,14 @@
+diff --git a/src/AppBundle/Form/GenusFormType.php b/src/AppBundle/Form/GenusFormType.php
+index b909507..f939b71 100644
+--- a/src/AppBundle/Form/GenusFormType.php
++++ b/src/AppBundle/Form/GenusFormType.php
+@@ -19,6 +19,8 @@ class GenusFormType extends AbstractType
+ 
+     public function configureOptions(OptionsResolver $resolver)
+     {
+-
++        $resolver->setDefaults([
++            'data_class' => 'AppBundle\Entity\Genus'
++        ]);
+     }
+ }

@@ -1,0 +1,59 @@
+title: Symfony Fundamentals: Bundles, Configuration & Environments
+
+summary: |
+    After the first couce - [Joyful Development with Symfony](http://knpuniversity.com/screencast/symfony),
+    you've got Symfony up and running. CELEBRATION!
+
+    In this episode, it's time to get down to work by learning the
+    fundamental concepts of bundles, configuration and environments!
+    We'll discover what all the files in a Symfony project do and why,
+    the purpose of bundles and the power behind *environments*. So
+    let's get to work: what we're about to learn will pay dividends
+    for us in the future:
+
+    - Where do services come from?
+    - Installing an external bundle
+    - Configuring bundles
+    - Controller outside services
+    - Using `config:dump-reference`
+    - Understanding Symfony environments
+    - Create your own environment
+    - The `prod` environment and `cache:clear`
+    - The famous `parameters.yml`
+    - Where do routes come from?
+    - `src/` versus `app`
+
+
+    Ready, set, go!
+
+illustration: sf-fundamentals.png
+
+tuts_hero:
+    start_step: json-pass-in-dynamic-uri
+    finish_step: routing-add-yaml-route
+
+chapters:
+    install-bundles:
+        is_free: true
+        video_key: 156728459
+    using-services:
+        is_free: true
+        video_key: 156728666
+    config.yml:
+        video_key: 156731265
+    add-cache-service:
+        video_key: 157145102
+    configure-cache-service:
+        video_key: 157151825
+    understanding-environments:
+        video_key: 157154562
+    config_dev.yml-config_prod.yml:
+        video_key: 156772465
+    caching-by-environment:
+        video_key: 156775067
+    config-parameters:
+        video_key: 156778452
+    parameters.yml-kernel.root_dir:
+        video_key: 156781809
+    mastering-route-loading:
+        video_key: 157142212

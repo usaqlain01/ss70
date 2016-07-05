@@ -1,0 +1,113 @@
+diff --git a/app/Resources/views/genus/show.html.twig b/app/Resources/views/genus/show.html.twig
+index 5c0242c..62b4c38 100644
+--- a/app/Resources/views/genus/show.html.twig
++++ b/app/Resources/views/genus/show.html.twig
+@@ -5,8 +5,6 @@
+ {% block body %}
+     <h2 class="genus-name">{{ name }}</h2>
+ 
+-    <a href="{{ path('genus_show_notes', {'genusName': name}) }}">Json Notes</a>
+-
+     <div class="sea-creature-container">
+         <div class="genus-photo"></div>
+         <div class="genus-details">
+@@ -20,9 +18,20 @@
+             </dl>
+         </div>
+     </div>
+-    <div class="notes-container">
+-        <h2 class="notes-header">Notes</h2>
+-        <div><i class="fa fa-plus plus-btn"></i></div>
+-    </div>
+-    <section id="cd-timeline"></section>
++    <div id="js-notes-wrapper"></div>
++{% endblock %}
++
++{% block javascripts %}
++    {{ parent() }}
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
++
++    <script type="text/babel" src="{{ asset('js/notes.react.js') }}"></script>
++    <script type="text/babel">
++        ReactDOM.render(
++          <NoteSection />,
++          document.getElementById('js-notes-wrapper')
++        );
++    </script>
+ {% endblock %}
+diff --git a/web/js/notes.react.js b/web/js/notes.react.js
+new file mode 100644
+index 0000000..0735701
+--- /dev/null
++++ b/web/js/notes.react.js
+@@ -0,0 +1,68 @@
++var NoteSection = React.createClass({
++    getInitialState: function() {
++        return {
++            notes: []
++        }
++    },
++
++    componentDidMount: function() {
++        this.loadNotesFromServer();
++        setInterval(this.loadNotesFromServer, 2000);
++    },
++
++    loadNotesFromServer: function() {
++        $.ajax({
++            url: '/genus/octopus/notes',
++            success: function (data) {
++                this.setState({notes: data.notes});
++            }.bind(this)
++        });
++    },
++
++    render: function() {
++        return (
++            <div>
++                <div className="notes-container">
++                    <h2 className="notes-header">Notes</h2>
++                    <div><i className="fa fa-plus plus-btn"></i></div>
++                </div>
++                <NoteList notes={this.state.notes} />
++            </div>
++        );
++    }
++});
++
++var NoteList = React.createClass({
++    render: function() {
++        var noteNodes = this.props.notes.map(function(note) {
++            return (
++                <NoteBox username={note.username} avatarUri={note.avatarUri} date={note.date} key={note.id}>{note.note}</NoteBox>
++            );
++        });
++
++        return (
++            <section id="cd-timeline">
++                {noteNodes}
++            </section>
++        );
++    }
++});
++
++var NoteBox = React.createClass({
++    render: function() {
++        return (
++            <div className="cd-timeline-block">
++                <div className="cd-timeline-img">
++                    <img src={this.props.avatarUri} className="img-circle" alt="Leanna!" />
++                </div>
++                <div className="cd-timeline-content">
++                    <h2><a href="#">{this.props.username}</a></h2>
++                    <p>{this.props.children}</p>
++                    <span className="cd-date">{this.props.date}</span>
++                </div>
++            </div>
++        );
++    }
++});
++
++window.NoteSection = NoteSection;

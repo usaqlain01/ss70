@@ -1,0 +1,51 @@
+diff --git a/src/AppBundle/Controller/GenusController.php b/src/AppBundle/Controller/GenusController.php
+index 9ba6842..ba5a61e 100644
+--- a/src/AppBundle/Controller/GenusController.php
++++ b/src/AppBundle/Controller/GenusController.php
+@@ -99,14 +99,13 @@ class GenusController extends Controller
+         foreach ($genus->getNotes() as $note) {
+             $notes[] = [
+                 'id' => $note->getId(),
++                'username' => $note->getUsername(),
++                'avatarUri' => '/images/'.$note->getUserAvatarFilename(),
++                'note' => $note->getNote(),
++                'date' => $note->getCreatedAt()->format('M d, Y')
+             ];
+         }
+ 
+-        $notes = [
+-            ['id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Octopus asked me a riddle, outsmarted me', 'date' => 'Dec. 10, 2015'],
+-            ['id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'I counted 8 legs... as they wrapped around me', 'date' => 'Dec. 1, 2015'],
+-            ['id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Inked!', 'date' => 'Aug. 20, 2015'],
+-        ];
+         $data = [
+             'notes' => $notes
+         ];
+diff --git a/src/AppBundle/Entity/Genus.php b/src/AppBundle/Entity/Genus.php
+index 264b39a..7bafd19 100644
+--- a/src/AppBundle/Entity/Genus.php
++++ b/src/AppBundle/Entity/Genus.php
+@@ -103,6 +103,9 @@ class Genus
+         $this->isPublished = $isPublished;
+     }
+ 
++    /**
++     * @return ArrayCollection|GenusNote[]
++     */
+     public function getNotes()
+     {
+         return $this->notes;
+diff --git a/src/AppBundle/Entity/GenusNote.php b/src/AppBundle/Entity/GenusNote.php
+index 8dc6ff9..c024352 100644
+--- a/src/AppBundle/Entity/GenusNote.php
++++ b/src/AppBundle/Entity/GenusNote.php
+@@ -92,4 +92,9 @@ class GenusNote
+     {
+         $this->genus = $genus;
+     }
++
++    public function getId()
++    {
++        return $this->id;
++    }
+ }

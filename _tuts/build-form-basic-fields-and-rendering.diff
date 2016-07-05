@@ -1,0 +1,62 @@
+diff --git a/app/Resources/views/admin/genus/new.html.twig b/app/Resources/views/admin/genus/new.html.twig
+index b7dfb7f..10cbdf9 100644
+--- a/app/Resources/views/admin/genus/new.html.twig
++++ b/app/Resources/views/admin/genus/new.html.twig
+@@ -5,7 +5,13 @@
+         <div class="row">
+             <div class="col-xs-12">
+                 <h1>New Genus</h1>
++
++                {{ form_start(genusForm) }}
++                    {{ form_widget(genusForm) }}
++
++                    <button type="submit" class="btn btn-primary">Save</button>
++                {{ form_end(genusForm) }}
+             </div>
+         </div>
+     </div>
+-{% endblock %}
++{% endblock %}
+\ No newline at end of file
+diff --git a/src/AppBundle/Controller/Admin/GenusAdminController.php b/src/AppBundle/Controller/Admin/GenusAdminController.php
+index f534c75..d25bb33 100644
+--- a/src/AppBundle/Controller/Admin/GenusAdminController.php
++++ b/src/AppBundle/Controller/Admin/GenusAdminController.php
+@@ -2,6 +2,7 @@
+ 
+ namespace AppBundle\Controller\Admin;
+ 
++use AppBundle\Form\GenusFormType;
+ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+ 
+@@ -29,6 +30,10 @@ class GenusAdminController extends Controller
+      */
+     public function newAction()
+     {
+-        // let's go to work!
++        $form = $this->createForm(GenusFormType::class);
++
++        return $this->render('admin/genus/new.html.twig', [
++            'genusForm' => $form->createView()
++        ]);
+     }
+ }
+\ No newline at end of file
+diff --git a/src/AppBundle/Form/GenusFormType.php b/src/AppBundle/Form/GenusFormType.php
+index bf8a4db..b909507 100644
+--- a/src/AppBundle/Form/GenusFormType.php
++++ b/src/AppBundle/Form/GenusFormType.php
+@@ -10,7 +10,11 @@ class GenusFormType extends AbstractType
+ {
+     public function buildForm(FormBuilderInterface $builder, array $options)
+     {
+-
++        $builder
++            ->add('name')
++            ->add('speciesCount')
++            ->add('funFact')
++        ;
+     }
+ 
+     public function configureOptions(OptionsResolver $resolver)

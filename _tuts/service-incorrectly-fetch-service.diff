@@ -1,0 +1,13 @@
+diff --git a/src/AppBundle/Service/MarkdownTransformer.php b/src/AppBundle/Service/MarkdownTransformer.php
+index fe572b1..d51a109 100644
+--- a/src/AppBundle/Service/MarkdownTransformer.php
++++ b/src/AppBundle/Service/MarkdownTransformer.php
+@@ -6,6 +6,7 @@ class MarkdownTransformer
+ {
+     public function parse($str)
+     {
+-        return strtoupper($str);
++        return $this->get('markdown.parser')
++            ->transform($str);
+     }
+ }

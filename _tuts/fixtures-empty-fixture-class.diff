@@ -1,0 +1,40 @@
+diff --git a/README.md b/README.md
+index dcbf020..155a50e 100644
+--- a/README.md
++++ b/README.md
+@@ -39,6 +39,7 @@ schema!
+ ```
+ php bin/console doctrine:database:create
+ php bin/console doctrine:migrations:migrate
++php bin/console doctrine:fixtures:load
+ ```
+ 
+ If you get an error that the database exists, that should
+diff --git a/src/AppBundle/DataFixtures/ORM/LoadFixtures.php b/src/AppBundle/DataFixtures/ORM/LoadFixtures.php
+new file mode 100644
+index 0000000..cb48a00
+--- /dev/null
++++ b/src/AppBundle/DataFixtures/ORM/LoadFixtures.php
+@@ -0,0 +1,21 @@
++<?php
++
++namespace AppBundle\DataFixtures\ORM;
++
++use AppBundle\Entity\Genus;
++use Doctrine\Common\DataFixtures\FixtureInterface;
++use Doctrine\Common\Persistence\ObjectManager;
++
++class LoadFixtures implements FixtureInterface
++{
++    public function load(ObjectManager $manager)
++    {
++        $genus = new Genus();
++        $genus->setName('Octopus'.rand(1, 100));
++        $genus->setSubFamily('Octopodinae');
++        $genus->setSpeciesCount(rand(100, 99999));
++
++        $manager->persist($genus);
++        $manager->flush();
++    }
++}
+\ No newline at end of file

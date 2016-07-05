@@ -1,0 +1,66 @@
+title: Joyful Development with Symfony 3
+
+summary: |
+    Ready to get serious with Symfony? You've come to the right place!
+    
+    Get your first application off on the right foot by coding along with a real
+    application, using the right tools and learning the best practices from the
+    lead author of the Symfony documentation. These fundamentals will get you ready
+    for *everything* else you'll need to do with Symfony in the future.
+
+    In this screencast, we start building an application from the ground-up, exploring
+    the most fundamental parts of the application:
+
+    * Installation and Setup
+    * Route Essentials
+    * Mastering Controllers & Response
+    * Services and the Container
+    * Twig
+    * JSON Responses
+    * Configuration and Environments
+
+    ... and other goodies mixed in.
+
+illustration: symfony.png
+
+tuts_hero:
+    start_step: start
+    finish_step: json-pass-in-dynamic-uri
+
+chapters:
+    start-project:
+        is_free: true
+        video_key: 149777580
+    phpstorm-git:
+        is_free: true
+        video_key: 170221378
+    first-page:
+        is_free: true
+        video_key: 149782509
+    routing-wildcards:
+        is_free: true
+        video_key: 149889890
+    services-useful-objects:
+        is_free: true
+        video_key: 150274646
+    listing-services:
+        is_free: true
+        video_key: 150275061
+    hello-twig:
+        is_free: true
+        video_key: 150277110
+    twig-layouts:
+        is_free: true
+        video_key: 150277487
+    layout-assets:
+        is_free: true
+        video_key: 170224840
+    json-api:
+        is_free: true
+        video_key: 150915380
+    url-generation:
+        is_free: true
+        video_key: 150915478
+    reactjs-api:
+        is_free: true
+        video_key: 150920349

@@ -1,0 +1,16 @@
+diff --git a/app/Resources/views/genus/list.html.twig b/app/Resources/views/genus/list.html.twig
+index f98ab5d..357146d 100644
+--- a/app/Resources/views/genus/list.html.twig
++++ b/app/Resources/views/genus/list.html.twig
+@@ -10,7 +10,10 @@
+         </thead>
+         <tbody>
+             {% for genus in genuses %}
+-                {{ dump(genus) }}
++                <tr>
++                    <td>{{ genus.name }}</td>
++                    <td>{{ genus.speciesCount }}</td>
++                </tr>
+             {% endfor %}
+         </tbody>
+     </table>

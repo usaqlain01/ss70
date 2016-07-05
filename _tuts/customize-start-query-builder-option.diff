@@ -1,0 +1,19 @@
+diff --git a/src/AppBundle/Form/GenusFormType.php b/src/AppBundle/Form/GenusFormType.php
+index 020cfd8..baf0b8b 100644
+--- a/src/AppBundle/Form/GenusFormType.php
++++ b/src/AppBundle/Form/GenusFormType.php
+@@ -14,8 +14,12 @@ class GenusFormType extends AbstractType
+     {
+         $builder
+             ->add('name')
+-            ->add('subFamily', null, [
+-                'placeholder' => 'Choose a Sub Family'
++            ->add('subFamily', EntityType::class, [
++                'placeholder' => 'Choose a Sub Family',
++                'class' => SubFamily::class,
++                'query_builder' => function($repo) {
++
++                }
+             ])
+             ->add('speciesCount')
+             ->add('funFact')

@@ -1,0 +1,52 @@
+diff --git a/src/AppBundle/Entity/Genus.php b/src/AppBundle/Entity/Genus.php
+index ad4b6c5..264b39a 100644
+--- a/src/AppBundle/Entity/Genus.php
++++ b/src/AppBundle/Entity/Genus.php
+@@ -2,6 +2,7 @@
+ 
+ namespace AppBundle\Entity;
+ 
++use Doctrine\Common\Collections\ArrayCollection;
+ use Doctrine\ORM\Mapping as ORM;
+ 
+ /**
+@@ -42,6 +43,16 @@ class Genus
+      */
+     private $isPublished = true;
+ 
++    /**
++     * @ORM\OneToMany(targetEntity="GenusNote", mappedBy="genus")
++     */
++    private $notes;
++
++    public function __construct()
++    {
++        $this->notes = new ArrayCollection();
++    }
++
+     public function getName()
+     {
+         return $this->name;
+@@ -91,4 +102,9 @@ class Genus
+     {
+         $this->isPublished = $isPublished;
+     }
++
++    public function getNotes()
++    {
++        return $this->notes;
++    }
+ }
+diff --git a/src/AppBundle/Entity/GenusNote.php b/src/AppBundle/Entity/GenusNote.php
+index 22f4bf1..8dc6ff9 100644
+--- a/src/AppBundle/Entity/GenusNote.php
++++ b/src/AppBundle/Entity/GenusNote.php
+@@ -38,7 +38,7 @@ class GenusNote
+     private $createdAt;
+ 
+     /**
+-     * @ORM\ManyToOne(targetEntity="Genus")
++     * @ORM\ManyToOne(targetEntity="Genus", inversedBy="notes")
+      * @ORM\JoinColumn(nullable=false)
+      */
+     private $genus;

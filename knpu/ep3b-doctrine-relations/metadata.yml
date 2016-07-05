@@ -1,0 +1,49 @@
+title: Mastering Doctrine Relationships in Symfony
+
+summary: |
+    In the [part 1 of the Doctrine Tutorial](http://knpuniversity.com/screencast/symfony-doctrine)
+    we got a *sweet* setup with Doctrine: entities, queries, migrations and fixtures.
+    
+    But, we left out *one* big piece: database relations. Once you've mastered these,
+    you'll be unstoppable. Unfortunately, a lot of information out there make Doctrine
+    relations look over-complicated. Actually, they're simple and beautiful. Sure,
+    they have some pitfalls - but they'll also help you build a complex data structure
+    in no time.
+
+    * ManyToOne relationships (associations)
+    * The OneToMany side of a relation
+    * The downfall of owning versus inverse sides of a relation
+    * Doing magic with the ArrayCollection
+    * Querying with Joins
+
+    ... and more - like some magic with the "Param Conversion".
+
+illustration: doctrine-relationships.png
+
+tuts_hero:
+    start_step: repository-basic-qb-method
+    finish_step: join-join-query-to-order-by-relation
+
+chapters:
+    create-genus-note:
+        is_free: true
+        video_key: 160163498
+    many-to-one-relation:
+        is_free:   true
+        video_key: 160156613
+    save-relation:
+        video_key: 160164728
+    join-column-relation-fixtures:
+        video_key: 160163887        
+    param-conversion:
+        video_key: 160164929
+    one-to-many:
+        video_key: 160254347
+    one-to-many-order-by:
+        video_key: 160257221
+    array-collection-tricks:
+        video_key: 160257875
+    relation-query:
+        video_key: 160258582
+    query-with-join:
+        video_key: 160258855
