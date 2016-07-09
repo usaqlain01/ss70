@@ -22,8 +22,22 @@ class PosterController extends BaseController
      */
     public function showAction($id)
     {
+        $testText = 'blah blah blah blah blah blah';
+         //caching to be used later with things we wanna cache
+        $cache = $this->get('doctrine_cache.providers.my_markdown_cache');
+        $cacheKey = md5($testText);
+        if ($cache->contains($cacheKey)) {
+            $cacheText = $cache->fetch($cacheKey);
+        } else {
+            sleep(10);
+            $cache->save($cacheKey, $testText);
+            $cacheText = $testText;
+        }
+
+
         return $this->render('poster/show.html.twig', [
             'id' => $id,
+            'cache' => $cacheText,
         ]);
     }
 

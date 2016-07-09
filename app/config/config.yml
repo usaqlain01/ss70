@@ -68,6 +68,10 @@ doctrine:
 doctrine_cache:
     providers:
         my_markdown_cache:
-            type: %cache_type%
+            type: file_system
             file_system:
-                directory: %kernel.cache_dir%/markdown_cache
+                directory: /tmp/doctrine_cache
+
+
+#            type: "%cache_type%"
+#                directory: "%kernel.cache_dir%/markdown_cache"

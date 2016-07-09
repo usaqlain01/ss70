@@ -4,7 +4,9 @@
 
 {% block body %}
 
-    {#<a href="{{ path('poster_show_replies', {'id': id}) }}">REPLIES</a>#}
+
+    {{ cache }}
+
     <div id="js-replies-wrapper"></div>
 
 
@@ -21,7 +23,6 @@
 
     <script type="text/babel" src="{{ asset('js/replies.react.js') }}"></script>
     <script type="text/babel">
-        {#var notesUrl = '{{ path('genus_show_notes', {'name': 'Trichechus'}) }}';#}
         var repliesUrl = '{{ path('poster_show_replies', {'id': id}) }}';
         ReactDOM.render(
         <ReplySection url={repliesUrl} />,
