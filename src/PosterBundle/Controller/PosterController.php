@@ -29,7 +29,7 @@ class PosterController extends BaseController
         if ($cache->contains($cacheKey)) {
             $cacheText = $cache->fetch($cacheKey);
         } else {
-            sleep(10);
+            sleep(1);
             $cache->save($cacheKey, $testText);
             $cacheText = $testText;
         }
