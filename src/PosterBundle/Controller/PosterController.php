@@ -9,16 +9,22 @@
 namespace PosterBundle\Controller;
 
 
+use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class PosterController
+class PosterController extends BaseController
 {
     /**
      * @Route("/poster/{id}")
      */
     public function showAction($id)
     {
-        return new Response('POSTER ID:'.$id);
+        $twig = $this->get('templating');
+        $html = $twig->render('poster/show.html.twig', [
+            'id' => $id,
+        ]);
+
+        return new Response($html);
     }
 }
