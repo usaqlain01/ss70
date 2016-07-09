@@ -15,10 +15,10 @@ use Symfony\Component\HttpFoundation\Response;
 class PosterController
 {
     /**
-     * @Route("/poster")
+     * @Route("/poster/{id}")
      */
-    public function showAction()
+    public function showAction($id)
     {
-        return new Response('WHAT AN AMAZING POSTER');
+        return new Response('POSTER ID:'.$id);
     }
 }

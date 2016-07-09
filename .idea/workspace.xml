@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7168bc6d-9448-498e-840f-96952bd8c70c" name="Default" comment="" />
+    <list default="true" id="7168bc6d-9448-498e-840f-96952bd8c70c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PosterBundle/Controller/PosterController.php" afterPath="$PROJECT_DIR$/src/PosterBundle/Controller/PosterController.php" />
+    </list>
     <ignored path="ss70.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -35,8 +37,8 @@
       <file leaf-file-name="PosterController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PosterBundle/Controller/PosterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="240">
+              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding>
                 <element signature="e#125#184#0#PHP" expanded="true" />
               </folding>
@@ -235,12 +237,12 @@
       <option name="presentableId" value="Default" />
       <updated>1467670347873</updated>
       <workItem from="1467670349212" duration="122000" />
-      <workItem from="1468082155690" duration="2203000" />
+      <workItem from="1468082155690" duration="2423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2325000" />
+    <option name="totallyTimeSpent" value="2545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1362" y="23" width="1366" height="741" extended-state="6" />
@@ -405,8 +407,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PosterBundle/Controller/PosterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state relative-caret-position="240">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="e#125#184#0#PHP" expanded="true" />
           </folding>
