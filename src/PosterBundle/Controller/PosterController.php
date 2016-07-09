@@ -11,7 +11,6 @@ namespace PosterBundle\Controller;
 
 use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
 
 class PosterController extends BaseController
 {
@@ -20,11 +19,8 @@ class PosterController extends BaseController
      */
     public function showAction($id)
     {
-        $twig = $this->get('templating');
-        $html = $twig->render('poster/show.html.twig', [
+        return $this->render('poster/show.html.twig', [
             'id' => $id,
         ]);
-
-        return new Response($html);
     }
 }
