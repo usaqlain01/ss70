@@ -2,6 +2,10 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+poster:
+    resource: "@PosterBundle/Controller/"
+    type:     annotation
+
 homepage:
     path: /
     defaults:
