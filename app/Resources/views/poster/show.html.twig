@@ -3,5 +3,29 @@
 {% block title %}Poster | {{ id }}{% endblock %}
 
 {% block body %}
-    <h1>POSTER ID #{{ id }}</h1>
+
+    {#<a href="{{ path('poster_show_replies', {'id': id}) }}">REPLIES</a>#}
+    <div id="js-replies-wrapper"></div>
+
+
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <script type="text/babel" src="{{ asset('js/replies.react.js') }}"></script>
+    <script type="text/babel">
+        {#var notesUrl = '{{ path('genus_show_notes', {'name': 'Trichechus'}) }}';#}
+        var repliesUrl = '{{ path('poster_show_replies', {'id': id}) }}';
+        ReactDOM.render(
+        <ReplySection url={repliesUrl} />,
+                document.getElementById('js-replies-wrapper')
+        );
+    </script>
 {% endblock %}
