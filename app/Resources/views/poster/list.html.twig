@@ -1,0 +1,24 @@
+{% extends 'poster_layout.html.twig' %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Content</th>
+                <th># of positions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for poster in posters %}
+                <tr>
+                    <td>{{ poster.title }}</td>
+                    <td>{{ poster.category }}</td>
+                    <td>{{ poster.content }}</td>
+                    <td>{{ poster.positionsCount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
