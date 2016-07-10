@@ -10,6 +10,7 @@ namespace PosterBundle\Controller;
 
 
 use AppBundle\Controller\BaseController;
+use PosterBundle\Entity\Poster;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,6 +18,35 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PosterController extends BaseController
 {
+    /**
+     * @Route("/poster/new")
+     */
+    public function newAction()
+    {
+        $poster = new Poster();
+        $poster->setTitle('Need Base Player'.rand(1,1000));
+        $poster->setCategory('Sports');
+        $poster->setPositionsCount(3);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($poster);
+        $em->flush();
+
+        return new Response('<html><body>POSTER CREATED</body></html>');
+    }
+
+    /**
+     * @Route("/posters")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $posters = $em->getRepository('PosterBundle:Poster')->findAll();
+        
+        return $this->render('poster/list.html.twig',[
+            'posters' => $posters,
+        ]);
+    }
+    
     /**
      * @Route("/poster/{id}")
      */
