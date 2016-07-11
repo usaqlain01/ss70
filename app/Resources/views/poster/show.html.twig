@@ -1,17 +1,26 @@
 {% extends 'poster_layout.html.twig' %}
 
-{% block title %}Poster | {{ id }}{% endblock %}
+{% block title %}Poster{% endblock %}
 
 {% block body %}
 
+    <h2 class="genus-name">{{ poster.title }}</h2>
 
-    {{ cache }}
+    <div class="sea-creature-container">
+        <div class="genus-photo"></div>
+        <div class="genus-details">
+            <dl class="genus-details-list">
+                <dt>Category:</dt>
+                <dd>{{ poster.category }}</dd>
+                <dt>Number Of Positions:</dt>
+                <dd>{{ poster.positionsCount }}</dd>
+                <dt>Description:</dt>
+                <dd>{{ poster.content }}</dd>
+            </dl>
+        </div>
+    </div>
 
     <div id="js-replies-wrapper"></div>
-
-
-
-
 
 {% endblock %}
 
@@ -23,7 +32,7 @@
 
     <script type="text/babel" src="{{ asset('js/replies.react.js') }}"></script>
     <script type="text/babel">
-        var repliesUrl = '{{ path('poster_show_replies', {'id': id}) }}';
+        var repliesUrl = '{{ path('poster_show_replies', {'id': 5}) }}';
         ReactDOM.render(
         <ReplySection url={repliesUrl} />,
                 document.getElementById('js-replies-wrapper')

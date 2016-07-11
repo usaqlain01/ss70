@@ -11,7 +11,7 @@ namespace PosterBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PosterBundle\Repository\PosterRepository")
  * @ORM\Table(name="poster")
  */
 class Poster
@@ -34,6 +34,11 @@ class Poster
     private $content;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_published;
+
+    /**
      * @ORM\Column(type="string")
      */
     private $category;
@@ -43,9 +48,16 @@ class Poster
      */
     private $positionsCount;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getTitle()
     {
@@ -53,7 +65,7 @@ class Poster
     }
 
     /**
-     * @param mixed $title
+     * @param string $title
      */
     public function setTitle($title)
     {
@@ -108,5 +120,19 @@ class Poster
         $this->positionsCount = $positionsCount;
     }
 
+    /**
+     * @return boolean
+     */
+    public function getIsPublished()
+    {
+        return $this->is_published;
+    }
 
+    /**
+     * @param boolean $is_published
+     */
+    public function setIsPublished($is_published)
+    {
+        $this->is_published = $is_published;
+    }
 }
