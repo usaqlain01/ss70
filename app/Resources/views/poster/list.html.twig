@@ -13,7 +13,9 @@
         <tbody>
             {% for poster in posters %}
                 <tr>
-                    <td>{{ poster.title }}</td>
+                    <td>
+                        <a href="{{ path('poster_show', {'id': poster.id}) }}"> {{ poster.title }} </a>
+                    </td>
                     <td>{{ poster.category }}</td>
                     <td>{{ poster.content }}</td>
                     <td>{{ poster.positionsCount }}</td>
