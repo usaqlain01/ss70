@@ -2,25 +2,27 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}AquaNote!{% endblock %}</title>
+        <title>{% block title %}Play Mate{% endblock %}</title>
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
             <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('icon.png') }}" />
     </head>
     <body>
+        {% block main %}
         <div class="search-bar">
             <form method="GET" action="" class="js-sea-search sea-search">
-                <input type="search" name="q" placeholder="Search Sea Creatures" autocomplete="off" class="search-input">
+                <input type="search" name="q" placeholder="Search Social Scenes" autocomplete="off" class="search-input">
             </form>
         </div>
+
         <header class="header">
-            <img class="logo-icon" src="{{ asset('images/aquanote-logo.png') }}">
-            <h1 class="logo">AquaNote</h1>
-            <ul class="navi">
+            <img class="logo-icon col-xs-2" src="{{ asset('header-icon.png') }}">
+            <h1 class="logo col-xs-4">Play Mate</h1>
+            <ul class="navi col-xs-6">
                 <li class="search"><a href="#" class="js-header-search-toggle"><i class="fa fa-search"></i></a></li>
                 {% if is_granted('ROLE_USER') %}
                     <li><a href="{{ path('security_logout') }}">Logout</a></li>
@@ -43,7 +45,7 @@
         <div class="footer">
             <p class="footer-text"><span class="fa fa-wrench"></span> Under Construction!!! <span class="fa fa-hourglass"></span></p>
         </div>
-
+        {% endblock %}
         {% block javascripts %}
             <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
             <script src="{{ asset('js/main.js') }}"></script>

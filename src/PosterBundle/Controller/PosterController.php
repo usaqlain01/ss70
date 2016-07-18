@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PosterController extends BaseController
 {
     /**
-     * @Route("/poster/new")
+     * @Route("/poster/auto-new")
      */
     public function newAction()
     {
@@ -50,33 +50,33 @@ class PosterController extends BaseController
         $poster->setIsPublished(true);
 
         //create poster reply
-        $posterReply = new PosterReply();
-        $posterReply->setUsername('usman');
-        $posterReply->setAvatarFile('usman.jpg');
-        $posterReply->setReply('this is pretty cool, I am in!!!');
-        $posterReply->setCreatedAt(new \DateTime('-1 month'));
-        $posterReply->setPoster($poster);
-
-        $posterReply1 = new PosterReply();
-        $posterReply1->setUsername('Ryan');
-        $posterReply1->setAvatarFile('ryan.jpeg');
-        $posterReply1->setReply('Wow, I have been waiting for this. Shout out');
-        $posterReply1->setCreatedAt(new \DateTime('-2 month'));
-        $posterReply1->setPoster($poster);
-
-        $posterReply2 = new PosterReply();
-        $posterReply2->setUsername('Becky');
-        $posterReply2->setAvatarFile('leanna.jpeg');
-        $posterReply2->setReply('how far is it from my home?');
-        $posterReply2->setCreatedAt(new \DateTime('-1 month'));
-        $posterReply2->setPoster($poster);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($poster);
-        $em->persist($posterReply);
-        $em->persist($posterReply1);
-        $em->persist($posterReply2);
-        $em->flush();
+//        $posterReply = new PosterReply();
+//        $posterReply->setUsername('usman');
+//        $posterReply->setAvatarFile('usman.jpg');
+//        $posterReply->setReply('this is pretty cool, I am in!!!');
+//        $posterReply->setCreatedAt(new \DateTime('-1 month'));
+//        $posterReply->setPoster($poster);
+//
+//        $posterReply1 = new PosterReply();
+//        $posterReply1->setUsername('Ryan');
+//        $posterReply1->setAvatarFile('ryan.jpeg');
+//        $posterReply1->setReply('Wow, I have been waiting for this. Shout out');
+//        $posterReply1->setCreatedAt(new \DateTime('-2 month'));
+//        $posterReply1->setPoster($poster);
+//
+//        $posterReply2 = new PosterReply();
+//        $posterReply2->setUsername('Becky');
+//        $posterReply2->setAvatarFile('leanna.jpeg');
+//        $posterReply2->setReply('how far is it from my home?');
+//        $posterReply2->setCreatedAt(new \DateTime('-1 month'));
+//        $posterReply2->setPoster($poster);
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($poster);
+//        $em->persist($posterReply);
+//        $em->persist($posterReply1);
+//        $em->persist($posterReply2);
+//        $em->flush();
 
         return new Response('<html><body>POSTER CREATED</body></html>');
     }

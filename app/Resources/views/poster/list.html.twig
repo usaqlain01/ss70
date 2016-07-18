@@ -1,34 +1,36 @@
 {% extends 'poster_layout.html.twig' %}
 
 {% block body %}
-    <table class="table table-striped">
+    <div class="container">
+    <table class="table table-striped well">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Content</th>
-                <th># of positions</th>
-                <th>Location</th>
-                <th>&nbsp;</th>
+                <th class="col-xs-2 text-center">Title</th>
+                <th class="col-xs-2 text-center">Category</th>
+                <th class="col-xs-5 text-center">Content</th>
+                <th class="col-xs-1 text-center">positions</th>
+                <th class="col-xs-1 text-center">Location</th>
+                <th class="col-xs-1 text-center">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
             {% for poster in posters %}
                 <tr>
-                    <td>
+                    <td class="col-xs-2 text-center">
                         <a href="{{ path('poster_show', {'id': poster.id}) }}"> {{ poster.title }} </a>
                     </td>
-                    <td>{{ poster.category }}</td>
-                    <td>{{ poster.content }}</td>
-                    <td>{{ poster.positionsCount }}</td>
-                    <td>{{ poster.location }}</td>
-                    <td>
+                    <td class="col-xs-2 text-left">{{ poster.category }}</td>
+                    <td class="col-xs-5 text-left">{{ poster.content }}</td>
+                    <td class="col-xs-1 text-left">{{ poster.positionsCount }}</td>
+                    <td class="col-xs-1 text-left">{{ poster.location }}</td>
+                    <td class="col-xs-1 text-left">
                         <a href="{{ path('user_poster_edit', {'id': poster.id}) }}" class="btn btn-xs btn-success"><span class="fa fa-pencil"></span></a>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    </div>
 {% endblock %}
 
 

@@ -1,17 +1,34 @@
-{% extends 'poster_layout.html.twig' %}
+{% extends 'poster/formLayout.html.twig' %}
 
 {% block title %}Create Poster{% endblock %}
+
 
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h1>New Poster</h1>
+
                 {{ form_start(posterForm) }}
-                    {{ form_widget(posterForm) }}
-                    <button type="submit" class="btn btn-primary">SAVE</button>
+                {{ form_row(posterForm.title) }}
+                {{ form_row(posterForm.content) }}
+                {{ form_row(posterForm.category) }}
+                {{ form_row(posterForm.positions_count, {
+                    'label': 'Number of Positions'
+                }) }}
+                {{ form_row(posterForm.location) }}
+                {{ form_row(posterForm.event_date, {
+                    'label' : 'Event Date'
+                }) }}
+                {{ form_row(posterForm.is_published) }}
+
+                <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
                 {{ form_end(posterForm) }}
+
+
             </div>
         </div>
     </div>
 {% endblock %}
+
+

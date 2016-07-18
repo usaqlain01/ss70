@@ -1,8 +1,41 @@
-{% extends 'base.html.twig' %}
+{% extends 'poster_layout.html.twig' %}
 
 {% block body %}
-    <h1 class="page-header text-center">
+    <h1 class="page-header text-center well">
         Welcome
         {{ app.user ? app.user.email : 'Aquanauts' }}!
     </h1>
+    <div class="container">
+        <div class="row" id="panels">
+            <div class="col-sm-4 participate text-center">
+                <div class="panel">
+                    <a class="participate" href ="{{ path('posters_list') }}"><img src="{{ asset('images/participate.png') }}" alt="participate"></a>
+                    <p class="subheading"></p>
+                    <p class="content-text">Participate
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 create text-center">
+                <div class="panel">
+                    <a class="create" href ="{{ path('user_poster_new') }}"><img src="{{ asset('images/create.png') }}" alt="create"></a>
+                    <p class="subheading"></p>
+                    <p class="content-text">Create
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 about text-center">
+                <div class="panel">
+                    <img src="{{ asset('images/about.jpg') }}" alt="support">
+                    <p class="subheading"></p>
+                    <p class="content-text">About
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

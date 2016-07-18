@@ -10,6 +10,7 @@ namespace PosterBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="PosterBundle\Repository\PosterRepository")
@@ -60,6 +61,11 @@ class Poster
      * @ORM\OrderBy({"createdAt"="DESC"})
      */
     private $replies;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $event_date;
 
     public function __construct()
     {
@@ -177,5 +183,19 @@ class Poster
     {
         $this->location = $location;
     }
+
+
+    public function getEventDate()
+    {
+        return $this->event_date;
+    }
+
+
+    public function setEventDate(\DateTime $event_date=null)
+    {
+        $this->event_date = $event_date;
+    }
+
+
     
 }

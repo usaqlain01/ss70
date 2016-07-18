@@ -1,4 +1,4 @@
-{% extends 'poster_layout.html.twig' %}
+{% extends 'poster/formLayout.html.twig' %}
 
 {% block title %}Edit Poster{% endblock %}
 
@@ -16,13 +16,13 @@
                     'label': 'Number of Positions'
                 }) }}
                 {{ form_row(posterForm.location) }}
+                {{ form_row(posterForm.event_date, {
+                    'label' : 'Event Date'
+                }) }}
                 {{ form_row(posterForm.is_published) }}
-
-
                 <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
                 {{ form_end(posterForm) }}
             </div>
         </div>
     </div>
 {% endblock %}
-
