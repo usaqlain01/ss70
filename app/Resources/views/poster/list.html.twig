@@ -8,6 +8,8 @@
                 <th>Category</th>
                 <th>Content</th>
                 <th># of positions</th>
+                <th>Location</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +21,14 @@
                     <td>{{ poster.category }}</td>
                     <td>{{ poster.content }}</td>
                     <td>{{ poster.positionsCount }}</td>
+                    <td>{{ poster.location }}</td>
+                    <td>
+                        <a href="{{ path('user_poster_edit', {'id': poster.id}) }}" class="btn btn-xs btn-success"><span class="fa fa-pencil"></span></a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 {% endblock %}
+
+

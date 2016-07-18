@@ -1,0 +1,17 @@
+{% extends 'poster_layout.html.twig' %}
+
+{% block title %}Create Poster{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>New Poster</h1>
+                {{ form_start(posterForm) }}
+                    {{ form_widget(posterForm) }}
+                    <button type="submit" class="btn btn-primary">SAVE</button>
+                {{ form_end(posterForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
