@@ -10,7 +10,9 @@ namespace PosterBundle\Controller;
 
 
 use AppBundle\Controller\BaseController;
+use AppBundle\Entity\Genus;
 use PosterBundle\Entity\Poster;
+use PosterBundle\Entity\PosterReply;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,7 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PosterController extends BaseController
 {
     /**
-     * @Route("/poster/new")
+     * @Route("/poster/auto-new")
      */
     public function newAction()
     {
@@ -46,15 +48,41 @@ class PosterController extends BaseController
             Sed consequat, leo eget bibendum sodales, augue velit cursus nunc
         ');
         $poster->setIsPublished(true);
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($poster);
-        $em->flush();
+
+        //create poster reply
+//        $posterReply = new PosterReply();
+//        $posterReply->setUsername('usman');
+//        $posterReply->setAvatarFile('usman.jpg');
+//        $posterReply->setReply('this is pretty cool, I am in!!!');
+//        $posterReply->setCreatedAt(new \DateTime('-1 month'));
+//        $posterReply->setPoster($poster);
+//
+//        $posterReply1 = new PosterReply();
+//        $posterReply1->setUsername('Ryan');
+//        $posterReply1->setAvatarFile('ryan.jpeg');
+//        $posterReply1->setReply('Wow, I have been waiting for this. Shout out');
+//        $posterReply1->setCreatedAt(new \DateTime('-2 month'));
+//        $posterReply1->setPoster($poster);
+//
+//        $posterReply2 = new PosterReply();
+//        $posterReply2->setUsername('Becky');
+//        $posterReply2->setAvatarFile('leanna.jpeg');
+//        $posterReply2->setReply('how far is it from my home?');
+//        $posterReply2->setCreatedAt(new \DateTime('-1 month'));
+//        $posterReply2->setPoster($poster);
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($poster);
+//        $em->persist($posterReply);
+//        $em->persist($posterReply1);
+//        $em->persist($posterReply2);
+//        $em->flush();
 
         return new Response('<html><body>POSTER CREATED</body></html>');
     }
 
     /**
-     * @Route("/posters")
+     * @Route("/posters", name="posters_list")
      */
     public function listAction()
     {
@@ -94,8 +122,17 @@ class PosterController extends BaseController
         }
         */
 
+        $recentReplies = $poster->getReplies()
+            ->filter(function(PosterReply $reply){
+                return $reply->getCreatedAt() > new \DateTime('-2 months');
+            });
+
+
+
+
         return $this->render('poster/show.html.twig', [
             'poster' => $poster,
+            'recentReplyCount' => count($recentReplies),
         ]);
     }
 
@@ -103,13 +140,18 @@ class PosterController extends BaseController
      * @Route("/poster/{id}/replies", name="poster_show_replies")
      * @Method("GET")
      */
-    public function getRepliesAction()
+    public function getRepliesAction(Poster $poster)
     {
-        $replies = [
-            ['id' => 19, 'username' => 'hBoyer', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'Octopus asked me a riddle, outsmarted me', 'date' => 'Dec 10, 2015'],
-            ['id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'I counted 8 legs... as they wrapped around me', 'date' => 'Dec. 1, 2015'],
-            ['id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Inked!', 'date' => 'Aug. 20, 2015'],
-        ];
+        $replies = [];
+        foreach ($poster->getReplies() as $reply) {
+            $replies[] = [
+                'id' => $reply->getId(),
+                'username' => $reply->getUsername(),
+                'avatarUri' => '/images/'.$reply->getAvatarFile(),
+                'note' => $reply->getReply(),
+                'date' => $reply->getCreatedAt()->format('M d, Y'),
+            ];
+        }
 
         $data = [
             'replies' => $replies,

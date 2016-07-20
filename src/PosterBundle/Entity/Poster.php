@@ -8,7 +8,9 @@
 
 namespace PosterBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="PosterBundle\Repository\PosterRepository")
@@ -47,6 +49,28 @@ class Poster
      * @ORM\Column(type="integer")
      */
     private $positionsCount;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PosterBundle\Entity\PosterLocation")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $location;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PosterBundle\Entity\PosterReply", mappedBy="poster")
+     * @ORM\OrderBy({"createdAt"="DESC"})
+     */
+    private $replies;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $event_date;
+
+    public function __construct()
+    {
+        $this->replies = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -135,4 +159,43 @@ class Poster
     {
         $this->is_published = $is_published;
     }
+
+    /**
+     * @return ArrayCollection|PosterReply[]
+     */
+    public function getReplies()
+    {
+        return $this->replies;
+    }
+
+    /**
+     * @return PosterLocation
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param PosterLocation $location
+     */
+    public function setLocation(PosterLocation $location)
+    {
+        $this->location = $location;
+    }
+
+
+    public function getEventDate()
+    {
+        return $this->event_date;
+    }
+
+
+    public function setEventDate(\DateTime $event_date=null)
+    {
+        $this->event_date = $event_date;
+    }
+
+
+    
 }

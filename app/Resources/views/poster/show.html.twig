@@ -19,7 +19,7 @@
             </dl>
         </div>
     </div>
-
+    Recent Replies: {{ recentReplyCount }}
     <div id="js-replies-wrapper"></div>
 
 {% endblock %}
@@ -32,7 +32,7 @@
 
     <script type="text/babel" src="{{ asset('js/replies.react.js') }}"></script>
     <script type="text/babel">
-        var repliesUrl = '{{ path('poster_show_replies', {'id': 5}) }}';
+        var repliesUrl = '{{ path('poster_show_replies', {'id': poster.id}) }}';
         ReactDOM.render(
         <ReplySection url={repliesUrl} />,
                 document.getElementById('js-replies-wrapper')

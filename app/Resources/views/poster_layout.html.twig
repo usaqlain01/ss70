@@ -1,1 +1,47 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/home_style.css') }}">
+{% endblock %}
+{#{% block main %}#}
+    {#I CONTROL THE THINGS NOW#}
+{#{% endblock %}#}
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+{#{% endblock %}#}
+
+
+        {#{% block main %}#}
+            {#<div class="search-bar">#}
+                {#<form method="GET" action="" class="js-sea-search sea-search">#}
+                    {#<input type="search" name="q" placeholder="Search Sea Creatures" autocomplete="off" class="search-input">#}
+                {#</form>#}
+            {#</div>#}
+
+            {#<header class="header">#}
+                {#<img class="logo-icon" src="{{ asset('images/aquanote-logo.png') }}">#}
+                {#<h1 class="logo">AquaNote</h1>#}
+                {#<ul class="navi">#}
+                    {#<li class="search"><a href="#" class="js-header-search-toggle"><i class="fa fa-search"></i></a></li>#}
+                    {#{% if is_granted('ROLE_USER') %}#}
+                        {#<li><a href="{{ path('security_logout') }}">Logout</a></li>#}
+                    {#{% else %}#}
+                        {#<li><a href="{{ path('security_login') }}">Login</a></li>#}
+                    {#{% endif %}#}
+                {#</ul>#}
+            {#</header>#}
+
+            {#<div class="main-content">#}
+                {#{% for msg in app.session.flashBag.get('success') %}#}
+                    {#<div class="alert alert-success">#}
+                        {#{{ msg }}#}
+                    {#</div>#}
+                {#{% endfor %}#}
+
+                {#{% block body %}{% endblock %}#}
+            {#</div>#}
+
+            {#<div class="footer">#}
+                {#<p class="footer-text"><span class="fa fa-wrench"></span> Under Construction!!! <span class="fa fa-hourglass"></span></p>#}
+            {#</div>#}
+        {#{% endblock %}#}
