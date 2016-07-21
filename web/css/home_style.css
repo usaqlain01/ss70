@@ -19,12 +19,15 @@ h1.logo{
 h1.page-header{
     margin: 0;
 }
-ul.navi{
-
+div.create-poster {
+    width: 40%;
+    margin: 15px;
+    margin-left: calc(29% - 15px);
 }
 div.about{
     background-color: #BCED91;
 }
+
 div.create{
     background-color: #66CCFF;
 }

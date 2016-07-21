@@ -2,7 +2,10 @@
 
 {% block body %}
     <div class="container">
-    <table class="table table-striped well">
+    <div class="create-poster">
+    <a class="create btn btn-lg btn-success center-block" href ="{{ path('user_poster_new') }}"><i class="fa fa-file-image-o" aria-hidden="true">&nbsp;Create Your Poster</i></a>
+    </div>
+        <table class="table table-striped well">
         <thead>
             <tr>
                 <th class="col-xs-2 text-center">Title</th>
