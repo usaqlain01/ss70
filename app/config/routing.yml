@@ -5,7 +5,9 @@ app:
 poster:
     resource: "@PosterBundle/Controller/"
     type:     annotation
-
+map:
+    resource: "@MapBundle/Controller/"
+    type:     annotation
 homepage:
     path: /
     defaults:
