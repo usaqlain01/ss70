@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}Play Mate{% endblock %}</title>
+        <title>{% block title %}Spot Scene{% endblock %}</title>
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
             <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
         {% endblock %}
@@ -21,7 +21,6 @@
 
         <header class="header">
             <img class="logo-icon col-xs-2" src="{{ asset('header-icon.png') }}">
-            <h1 class="logo col-xs-4">Play Mate</h1>
             <ul class="navi col-xs-6">
                 <li class="search"><a href="#" class="js-header-search-toggle"><i class="fa fa-search"></i></a></li>
                 {% if is_granted('ROLE_USER') %}
@@ -29,6 +28,8 @@
                 {% else %}
                     <li><a href="{{ path('security_login') }}">Login</a></li>
                 {% endif %}
+                <li class="search"><a href="{{ path('home') }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+
             </ul>
         </header>
 
@@ -47,7 +48,8 @@
         </div>
         {% endblock %}
         {% block javascripts %}
-            <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+            <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
             <script src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
     </body>

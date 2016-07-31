@@ -17,7 +17,7 @@
                 {{ form_row(form._password) }}
                 <button type="submit" class="btn btn-success">Login <span class="fa fa-lock"></span></button>
                 &nbsp;
-                <a href="{{ path('user_register') }}">I already have an account</a>
+                <button class="btn btn-primary"><a href="{{ path('user_register') }}" style="text-decorations:none !important; color:inherit;">Sign Up <span class="fa fa-user-plus"></span></a></button>
             {{ form_end(form) }}
         </div>
     </div>

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new AppBundle\AppBundle(),
             new PosterBundle\PosterBundle(),
+            new MapBundle\MapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

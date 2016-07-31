@@ -1,0 +1,18 @@
+{% extends 'map_layout.html.twig' %}
+{% block body %}
+    <input id="lat" type="hidden" value="{{ lat }}"/>
+    <input id="lon" type="hidden" value="{{ lon }}"/>
+    <div id="container">
+
+        <div class="panel panel-default center-block">
+            <div class="panel-heading">
+                <h2 class="text-center">Random Place on Planet Earth (Latitude: {{ lat }} Longitude: {{ lon }})</h2><br>
+                <a class="btn btn-m btn-success center-block" href="javascript:history.go(0)" style="width: 400px;"><span class="glyphicon glyphicon-send"></span> Take me somewhere Random!</a>
+            </div>
+            <div class="panel-body center-block">
+                <div id="googleMap" class="block-center text-center" style="width:700px;height:700px; margin:0 calc(100% - 1250px);"></div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
