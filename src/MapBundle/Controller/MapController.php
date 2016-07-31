@@ -23,4 +23,15 @@ class MapController extends BaseMapController
             'message' => 'BUNDLE + CONTROLLER IS HOOKED UP',
         ]);
     }
+
+    /**
+     * @Route("/randommap", name="randommap")
+     */
+    public function randomMapsAction()
+    {
+        return $this->render('maps/randommap.html.twig',[
+            'lat' => mt_rand(-85,85),
+            'lon' => mt_rand(-180,180),
+        ]);
+    }
 }

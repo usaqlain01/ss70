@@ -1,0 +1,32 @@
+body.bkw{
+    min-height: 300px;
+    background: url(../images/bkw.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body.bkg{
+    min-height: 300px;
+    background: url(../images/bkg.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body.bkl{
+    min-height: 300px;
+    background: url(../images/bkl.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body.bkb{
+    min-height: 300px;
+    background: url(../images/bkb.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

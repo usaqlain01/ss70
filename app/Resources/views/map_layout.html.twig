@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+    {#{% block stylesheets %}#}
+        {#{{ parent() }}#}
+        {#<link rel="stylesheet" href="{{ asset('css/home_style.css') }}">#}
+    {#{% endblock %}#}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbTcwZAZY0wLvwwn0ejD2eqej8grJLqAw"></script>
+        <script type="text/javascript" src="{{ asset('js/static_map.js') }}"></script>
+    {% endblock %}
+
