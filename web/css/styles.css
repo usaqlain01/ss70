@@ -664,7 +664,14 @@ FOOTER Styling
 .footer-text > a {
     color: #3a3a3a;
 }
-
+div.poster-footer{
+    min-height: 300px;
+    background: url(../footerbg.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .heart {
     color: red;
 }

@@ -5,10 +5,11 @@
 {% block body %}
 
     <h2 class="genus-name">{{ poster.title }}</h2>
+    {% set ihref = 'images/posters/poster' ~ picNum ~ '.png' %}
 
     <div class="sea-creature-container">
-        <div class="genus-photo"></div>
-        <div class="genus-details">
+        <div class="poster-photo"><img src="{{ asset(ihref) }}"/></div>
+        <div class="genus-details" style="margin-top:-450px;">
             <dl class="genus-details-list">
                 <dt>Category:</dt>
                 <dd>{{ poster.category }}</dd>

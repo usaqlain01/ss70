@@ -133,6 +133,7 @@ class PosterController extends BaseController
         return $this->render('poster/show.html.twig', [
             'poster' => $poster,
             'recentReplyCount' => count($recentReplies),
+            'picNum' => rand(1,4),
         ]);
     }
 
