@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %}
-    {#{% block stylesheets %}#}
-        {#{{ parent() }}#}
-        {#<link rel="stylesheet" href="{{ asset('css/home_style.css') }}">#}
-    {#{% endblock %}#}
+{#BASE FOR ALL MAPS#}
+{#MAPSTER IS OUR MAP LIBRARY, To Create Objects with ease. See custommap.html.twig and follow path.#}
 
     {% block javascripts %}
         {{ parent() }}
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbTcwZAZY0wLvwwn0ejD2eqej8grJLqAw"></script>
-        <script type="text/javascript" src="{{ asset('js/static_map.js') }}"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA9pI962prXrOrrChrc2jFZ_jDql6ISkjg"></script>
+        <script type="text/javascript" src="{{ asset('js/Mapster.js') }}"></script>
     {% endblock %}
 

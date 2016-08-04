@@ -1,3 +1,4 @@
+// Way 1 for loading plain google map, for way 2 see custom_map.js
 $(document).ready(function(){
     var lat = $("input#lat").val();
     var lon = $("input#lon").val();
