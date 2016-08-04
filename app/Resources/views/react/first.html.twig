@@ -1,0 +1,17 @@
+{% extends 'react_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/react_style.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    First React Page.{{ message }}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/babel" src="{{ asset('js/learn.react.js') }}"></script>
+{% endblock %}
