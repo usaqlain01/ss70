@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new PosterBundle\PosterBundle(),
             new MapBundle\MapBundle(),
+            new PokeBundle\PokeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

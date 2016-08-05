@@ -9,6 +9,10 @@ poster:
 map:
     resource: "@MapBundle/Controller/"
     type:     annotation
+
+pokemon:
+    resource: "@PokeBundle/Controller/"
+    type:     annotation
     
 homepage:
     path: /
