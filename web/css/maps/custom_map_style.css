@@ -1,0 +1,11 @@
+div#map-wrapper{
+    background: #95fffc;
+    height: 100vh;
+    width: 100%;
+    margin: 0 0 -40px 0;
+    padding: 0;
+}
+div#map-canvas{
+    height: 100vh;
+    width: 100%;
+}

@@ -34,4 +34,14 @@ class MapController extends BaseMapController
             'lon' => mt_rand(-180,180),
         ]);
     }
+
+    /**
+     * @Route("/custommap", name="custommap")
+     */
+    public function customMapAction()
+    {
+        return $this->render('maps/custommap.html.twig', [
+            'message' => 'HELLOW CUSTOM MAp',
+        ]);
+    }
 }

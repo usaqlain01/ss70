@@ -1,4 +1,10 @@
 {% extends 'map_layout.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/static_map.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <input id="lat" type="hidden" value="{{ lat }}"/>
     <input id="lon" type="hidden" value="{{ lon }}"/>

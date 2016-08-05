@@ -1,0 +1,25 @@
+{% extends 'map_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/maps/custom_map_style.css') }}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/map_options_alpha.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/custom_map.js') }}"></script>
+
+{% endblock %}
+
+{% block body %}
+
+    <div id="map-wrapper">
+        <div id="map-canvas">
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
