@@ -24,3 +24,8 @@ services:
         autowire: true
         tags:
             - { name: doctrine.event_subscriber }
+
+    app.poke.kind_generator:
+        class: PokeBundle\Service\PokeData
+        autowire: true
+
