@@ -14,121 +14,123 @@ use PokeBundle\Entity\PokeType;
 class PokeData
 {
     protected $pokeTypes = [
-        'normal' => [
+        PokeType::TYPE_NORMAL => [
             'strongOffense' => [],
             'strongDefense' => [],
-            'weakOffense' => ['rock','steel'],
-            'weakDefense' => ['fighting'],
+            'weakOffense' => [PokeType::TYPE_ROCK,PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_FIGHTING],
         ],
-        'fighting' => [
-            'strongOffense' => ['dark','ice','normal','rock','steel'],
-            'strongDefense' => ['bug','dark','rock'],
-            'weakOffense' => ['bug','fairy','flying','poison','psychic'],
-            'weakDefense' => ['fairy', 'flying', 'psychic'],
+        PokeType::TYPE_FIGHTING => [
+            'strongOffense' => [PokeType::TYPE_DARK,PokeType::TYPE_ICE,PokeType::TYPE_NORMAL,PokeType::TYPE_ROCK,PokeType::TYPE_STEEL],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_DARK,PokeType::TYPE_ROCK],
+            'weakOffense' => [PokeType::TYPE_BUG,PokeType::TYPE_FAIRY,PokeType::TYPE_FLYING,PokeType::TYPE_POISON,PokeType::TYPE_PSYCHIC],
+            'weakDefense' => [PokeType::TYPE_FAIRY, PokeType::TYPE_FLYING, PokeType::TYPE_PSYCHIC],
 
         ],
-        'flying' => [
-            'strongOffense' => ['bug','fighting','grass'],
-            'strongDefense' => ['bug','fighting','grass'],
-            'weakOffense' => ['electric','rock','steel'],
-            'weakDefense' => ['electric','ice','rock'],
+        PokeType::TYPE_FLYING => [
+            'strongOffense' => [PokeType::TYPE_BUG,PokeType::TYPE_FIGHTING,PokeType::TYPE_GRASS],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_FIGHTING,PokeType::TYPE_GRASS],
+            'weakOffense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_ROCK,PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_ICE,PokeType::TYPE_ROCK],
         ],
-        'poison' => [
-            'strongOffense' => ['fairy','grass'],
-            'strongDefense' => ['bug','fairy','fighting','grass','poison'],
-            'weakOffense' => ['ghost','ground','poison','rock'],
-            'weakDefense' => ['ground','psychic'],
+        PokeType::TYPE_POISON => [
+            'strongOffense' => [PokeType::TYPE_FAIRY,PokeType::TYPE_GRASS],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_FAIRY,PokeType::TYPE_FIGHTING,PokeType::TYPE_GRASS,PokeType::TYPE_POISON],
+            'weakOffense' => [PokeType::TYPE_GHOST,PokeType::TYPE_GROUND,PokeType::TYPE_POISON,PokeType::TYPE_ROCK],
+            'weakDefense' => [PokeType::TYPE_GROUND,PokeType::TYPE_PSYCHIC],
         ],
-        'ground' => [
-            'strongOffense' => ['electric','fire','poison','rock','steel'],
-            'strongDefense' => ['poison', 'rock'],
-            'weakOffense' => ['bug','grass'],
-            'weakDefense' => ['grass', 'ice', 'water'],
+        PokeType::TYPE_GROUND => [
+            'strongOffense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_FIRE,PokeType::TYPE_POISON,PokeType::TYPE_ROCK,PokeType::TYPE_STEEL],
+            'strongDefense' => [PokeType::TYPE_POISON, PokeType::TYPE_ROCK],
+            'weakOffense' => [PokeType::TYPE_BUG,PokeType::TYPE_GRASS],
+            'weakDefense' => [PokeType::TYPE_GRASS, PokeType::TYPE_ICE, PokeType::TYPE_WATER],
         ],
-        'rock' => [
-            'strongOffense' => ['bug','fire','flying','ice'],
-            'strongDefense' => ['fire','flying','normal','poison'],
-            'weakOffense' => ['fighting', 'ground', 'steel'],
-            'weakDefense' => ['fighting', 'grass', 'ground', 'steel', 'water'],
+        PokeType::TYPE_ROCK => [
+            'strongOffense' => [PokeType::TYPE_BUG,PokeType::TYPE_FIRE,PokeType::TYPE_FLYING,PokeType::TYPE_ICE],
+            'strongDefense' => [PokeType::TYPE_FIRE,PokeType::TYPE_FLYING,PokeType::TYPE_NORMAL,PokeType::TYPE_POISON],
+            'weakOffense' => [PokeType::TYPE_FIGHTING, PokeType::TYPE_GROUND, PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_FIGHTING, PokeType::TYPE_GRASS, PokeType::TYPE_GROUND, PokeType::TYPE_STEEL, PokeType::TYPE_WATER],
         ],
-        'bug' => [
-            'strongOffense' => ['dark','grass','psychic'],
-            'strongDefense' => ['fighting','grass','ground'],
-            'weakOffense' => ['fairy','fighting','fire','flying','ghost','poison','steel'],
-            'weakDefense' => ['rock','fire','flying'],
+        PokeType::TYPE_BUG => [
+            'strongOffense' => [PokeType::TYPE_DARK,PokeType::TYPE_GRASS,PokeType::TYPE_PSYCHIC],
+            'strongDefense' => [PokeType::TYPE_FIGHTING,PokeType::TYPE_GRASS,PokeType::TYPE_GROUND],
+            'weakOffense' => [PokeType::TYPE_FAIRY,PokeType::TYPE_FIGHTING,PokeType::TYPE_FIRE,PokeType::TYPE_FLYING,PokeType::TYPE_GHOST,PokeType::TYPE_POISON,PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_ROCK,PokeType::TYPE_FIRE,PokeType::TYPE_FLYING],
         ],
-        'ghost' => [
-            'strongOffense' => ['ghost','psychic'],
-            'strongDefense' => ['bug','poison'],
-            'weakOffense' => ['dark'],
-            'weakDefense' => ['dark','ghost'],
+        PokeType::TYPE_GHOST => [
+            'strongOffense' => [PokeType::TYPE_GHOST,PokeType::TYPE_PSYCHIC],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_POISON],
+            'weakOffense' => [PokeType::TYPE_DARK],
+            'weakDefense' => [PokeType::TYPE_DARK,PokeType::TYPE_GHOST],
         ],
-        'steel' => [
-            'strongOffense' => ['fairy','ice','rock'],
-            'strongDefense' => ['bug','dragon','fairy','flying','grass','ice','normal','psychic','rock','steel'],
-            'weakOffense' => ['electric','fire','steel','water'],
-            'weakDefense' => ['fighting','fire','ground'],
+        PokeType::TYPE_STEEL => [
+            'strongOffense' => [PokeType::TYPE_FAIRY,PokeType::TYPE_ICE,PokeType::TYPE_ROCK],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_DRAGON,PokeType::TYPE_FAIRY,PokeType::TYPE_FLYING,PokeType::TYPE_GRASS,PokeType::TYPE_ICE,PokeType::TYPE_NORMAL,PokeType::TYPE_PSYCHIC,PokeType::TYPE_ROCK,PokeType::TYPE_STEEL],
+            'weakOffense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_FIRE,PokeType::TYPE_STEEL,PokeType::TYPE_WATER],
+            'weakDefense' => [PokeType::TYPE_FIGHTING,PokeType::TYPE_FIRE,PokeType::TYPE_GROUND],
         ],
-        'fire' => [
-            'strongOffense' => ['bug','grass','ice','steel'],
-            'strongDefense' => ['bug','fairy','fire','grass','ice','steel'],
-            'weakOffense' => ['dragon','fire','rock','water'],
-            'weakDefense' => ['ground','rock','water'],
+        PokeType::TYPE_FIRE => [
+            'strongOffense' => [PokeType::TYPE_BUG,PokeType::TYPE_GRASS,PokeType::TYPE_ICE,PokeType::TYPE_STEEL],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_FAIRY,PokeType::TYPE_FIRE,PokeType::TYPE_GRASS,PokeType::TYPE_ICE,PokeType::TYPE_STEEL],
+            'weakOffense' => [PokeType::TYPE_DRAGON,PokeType::TYPE_FIRE,PokeType::TYPE_ROCK,PokeType::TYPE_WATER],
+            'weakDefense' => [PokeType::TYPE_GROUND,PokeType::TYPE_ROCK,PokeType::TYPE_WATER],
         ],
-        'water' => [
-            'strongOffense' => ['fire','ground','rock'],
-            'strongDefense' => ['fire','ice','steel','water'],
-            'weakOffense' => ['dragon','grass','water'],
-            'weakDefense' => ['electric','grass'],
+        PokeType::TYPE_WATER => [
+            'strongOffense' => [PokeType::TYPE_FIRE,PokeType::TYPE_GROUND,PokeType::TYPE_ROCK],
+            'strongDefense' => [PokeType::TYPE_FIRE,PokeType::TYPE_ICE,PokeType::TYPE_STEEL,PokeType::TYPE_WATER],
+            'weakOffense' => [PokeType::TYPE_DRAGON,PokeType::TYPE_GRASS,PokeType::TYPE_WATER],
+            'weakDefense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_GRASS],
         ],
-        'grass' => [
-            'strongOffense' => ['ground','rock','water'],
-            'strongDefense' => ['electric','ground','ground','water'],
-            'weakOffense' => ['bug','dragon','fire','flying','grass','poison','steel'],
-            'weakDefense' => ['bug','fire', 'flying','ice','poison'],
+        PokeType::TYPE_GRASS => [
+            'strongOffense' => [PokeType::TYPE_GROUND,PokeType::TYPE_ROCK,PokeType::TYPE_WATER],
+            'strongDefense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_GROUND,PokeType::TYPE_GROUND,PokeType::TYPE_WATER],
+            'weakOffense' => [PokeType::TYPE_BUG,PokeType::TYPE_DRAGON,PokeType::TYPE_FIRE,PokeType::TYPE_FLYING,PokeType::TYPE_GRASS,PokeType::TYPE_POISON,PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_FIRE, PokeType::TYPE_FLYING,PokeType::TYPE_ICE,PokeType::TYPE_POISON],
         ],
-        'electric' => [
-            'strongOffense' => ['flying','water'],
-            'strongDefense' => ['electric','flying','steel'],
-            'weakOffense' => ['dragon','electric','grass'],
-            'weakDefense' => ['ground'],
+        PokeType::TYPE_ELECTRIC => [
+            'strongOffense' => [PokeType::TYPE_FLYING,PokeType::TYPE_WATER],
+            'strongDefense' => [PokeType::TYPE_ELECTRIC,PokeType::TYPE_FLYING,PokeType::TYPE_STEEL],
+            'weakOffense' => [PokeType::TYPE_DRAGON,PokeType::TYPE_ELECTRIC,PokeType::TYPE_GRASS],
+            'weakDefense' => [PokeType::TYPE_GROUND],
         ],
-        'psychic' => [
-            'strongOffense' => ['fighting','poison'],
-            'strongDefense' => ['fighting','psychic'],
-            'weakOffense' => ['psychic','steel'],
-            'weakDefense' => ['bug','dark','ghost'],
+        PokeType::TYPE_PSYCHIC => [
+            'strongOffense' => [PokeType::TYPE_FIGHTING,PokeType::TYPE_POISON],
+            'strongDefense' => [PokeType::TYPE_FIGHTING,PokeType::TYPE_PSYCHIC],
+            'weakOffense' => [PokeType::TYPE_PSYCHIC,PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_DARK,PokeType::TYPE_GHOST],
         ],
-        'ice' => [
-            'strongOffense' => ['dragon', 'flying', 'grass', 'ground'],
-            'strongDefense' => ['ice'],
-            'weakOffense' => ['fire','ice','steel','water'],
-            'weakDefense' => ['fighting','fire','rock','steel'],
+        PokeType::TYPE_ICE => [
+            'strongOffense' => [PokeType::TYPE_DRAGON, PokeType::TYPE_FLYING, PokeType::TYPE_GRASS, PokeType::TYPE_GROUND],
+            'strongDefense' => [PokeType::TYPE_ICE],
+            'weakOffense' => [PokeType::TYPE_FIRE,PokeType::TYPE_ICE,PokeType::TYPE_STEEL,PokeType::TYPE_WATER],
+            'weakDefense' => [PokeType::TYPE_FIGHTING,PokeType::TYPE_FIRE,PokeType::TYPE_ROCK,PokeType::TYPE_STEEL],
         ],
-        'dragon' => [
-            'strongOffense' => ['dragon'],
-            'strongDefense' => ['electric', 'fire', 'grass', 'water'],
-            'weakOffense' => ['steel'],
-            'weakDefense' => ['dragon', 'fairy', 'ice'],
+        PokeType::TYPE_DRAGON => [
+            'strongOffense' => [PokeType::TYPE_DRAGON],
+            'strongDefense' => [PokeType::TYPE_ELECTRIC, PokeType::TYPE_FIRE, PokeType::TYPE_GRASS, PokeType::TYPE_WATER],
+            'weakOffense' => [PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_DRAGON, PokeType::TYPE_FAIRY, PokeType::TYPE_ICE],
         ],
-        'fairy' => [
-            'strongOffense' => ['dark','dragon','fighting'],
-            'strongDefense' => ['bug','dark','fighting'],
-            'weakOffense' => ['fire','poison','steel'],
-            'weakDefense' => ['poison','steel'],
+        PokeType::TYPE_FAIRY => [
+            'strongOffense' => [PokeType::TYPE_DARK,PokeType::TYPE_DRAGON,PokeType::TYPE_FIGHTING],
+            'strongDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_DARK,PokeType::TYPE_FIGHTING],
+            'weakOffense' => [PokeType::TYPE_FIRE,PokeType::TYPE_POISON,PokeType::TYPE_STEEL],
+            'weakDefense' => [PokeType::TYPE_POISON,PokeType::TYPE_STEEL],
         ],
-        'dark' => [
-            'strongOffense' => ['ghost','psychic'],
-            'strongDefense' => ['dark','ghost'],
-            'weakOffense' => ['dark', 'fairy', 'fighting'],
-            'weakDefense' => ['bug','fairy','fighting'],
+        PokeType::TYPE_DARK => [
+            'strongOffense' => [PokeType::TYPE_GHOST,PokeType::TYPE_PSYCHIC],
+            'strongDefense' => [PokeType::TYPE_DARK,PokeType::TYPE_GHOST],
+            'weakOffense' => [PokeType::TYPE_DARK, PokeType::TYPE_FAIRY, PokeType::TYPE_FIGHTING],
+            'weakDefense' => [PokeType::TYPE_BUG,PokeType::TYPE_FAIRY,PokeType::TYPE_FIGHTING],
         ],
     ];
+
+
 
     protected $pokeKinds = [
         1 => [
             'name' => 'Bulbasaur',
-            'type' => array('grass','poison'),
+            'type' => array(PokeType::TYPE_GRASS,PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 2,
             'story' => 'Bulbasaur is a Grass/Poison Type Pokemon. It evolves into Ivysaur. Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun\'s rays, the seed grows progressively larger.',
@@ -136,7 +138,7 @@ class PokeData
         ],
         2 => [
             'name' => 'Ivysaur',
-            'type' => array('grass','poison'),
+            'type' => array(PokeType::TYPE_GRASS,PokeType::TYPE_POISON),
             'from' => 1,
             'to' => 3,
             'story' => 'Ivysaur is a Grass/Poison Type Pokemon. It evolves into Venusaur. 2There is a bud on this Pokémon\'s back. To support its weight, Ivysaur\'s legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it\'s a sign that the bud will bloom into a large flower soon.',
@@ -144,7 +146,7 @@ class PokeData
         ],
         3 => [
             'name' => 'Venusaur',
-            'type' => array('grass','poison'),
+            'type' => array(PokeType::TYPE_GRASS,PokeType::TYPE_POISON),
             'from' => 2,
             'to' => NULL,
             'story' => 'There is a large flower on Venusaur\'s back. The flower is said to take on vivid colors if it gets plenty of nutrition and sunlight. The flower\'s aroma soothes the emotions of people.',
@@ -152,7 +154,7 @@ class PokeData
         ],
         4 => [
             'name' => 'Charmander',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => NULL,
             'to' => 5,
             'story' => '	The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely.',
@@ -160,7 +162,7 @@ class PokeData
         ],
         5 => [
             'name' => 'Charmeleon',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => 4,
             'to' => 6,
             'story' => 'Charmeleon mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color.',
@@ -168,7 +170,7 @@ class PokeData
         ],
         6 => [
             'name' => 'Charizard',
-            'type' => array('fire', 'flying'),
+            'type' => array(PokeType::TYPE_FIRE, PokeType::TYPE_FLYING),
             'from' => 5,
             'to' => NULL,
             'story' => 'Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.',
@@ -176,7 +178,7 @@ class PokeData
         ],
         7 => [
             'name' => 'Squirtle',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 8,
             'story' => 'Squirtle\'s shell is not merely used for protection. The shell\'s rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokémon to swim at high speeds.',
@@ -184,7 +186,7 @@ class PokeData
         ],
         8 => [
             'name' => 'Wartortle',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => 7,
             'to' => 9,
             'story' => 'Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pokémon\'s toughness as a battler.',
@@ -192,7 +194,7 @@ class PokeData
         ],
         9 => [
             'name' => 'Blastoise',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => 9,
             'to' => NULL,
             'story' => 'Blastoise has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet.',
@@ -200,7 +202,7 @@ class PokeData
         ],
         10 => [
             'name' => 'Caterpie',
-            'type' => array('bug'),
+            'type' => array(PokeType::TYPE_BUG),
             'from' => NULL,
             'to' => 11,
             'story' => 'Caterpie has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this Pokémon releases a terrifically strong ',
@@ -208,7 +210,7 @@ class PokeData
         ],
         11 => [
             'name' => 'Metapod',
-            'type' => array('bug'),
+            'type' => array(PokeType::TYPE_BUG),
             'from' => 11,
             'to' => 12,
             'story' => 'The shell covering this Pokémon’s body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.',
@@ -216,7 +218,7 @@ class PokeData
         ],
         12 => [
             'name' => 'Butterfree',
-            'type' => array('bug', 'flying'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_FLYING),
             'from' => 11,
             'to' => NULL,
             'story' => 'Butterfree has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest.',
@@ -224,7 +226,7 @@ class PokeData
         ],
         13 => [
             'name' => 'Weedle',
-            'type' => array('bug', 'poison'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 14,
             'story' => 'Weedle has an extremely acute sense of smell. It is capable of distinguishing its favorite kinds of leaves from those it dislikes just by sniffing with its big red proboscis (nose).',
@@ -232,7 +234,7 @@ class PokeData
         ],
         14 => [
             'name' => 'Kakuna',
-            'type' => array('bug', 'poison'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_POISON),
             'from' => 13,
             'to' => 15,
             'story' => 'Kakuna remains virtually immobile as it clings to a tree. However, on the inside, it is extremely busy as it prepares for its coming evolution. This is evident from how hot the shell becomes to the touch.',
@@ -240,7 +242,7 @@ class PokeData
         ],
         15 => [
             'name' => 'Beedrill',
-            'type' => array('bug', 'poison'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_POISON),
             'from' => 14,
             'to' => NULL,
             'story' => 'Beedrill is extremely territorial. No one should ever approach its nest—this is for their own safety. If angered, they will attack in a furious swarm.',
@@ -248,7 +250,7 @@ class PokeData
         ],
         16 => [
             'name' => 'Pidgey',
-            'type' => array('normal', 'flying'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => 17,
             'story' => 'Pidgey has an extremely sharp sense of direction. It is capable of unerringly returning home to its nest, however far it may be removed from its familiar surroundings.',
@@ -256,7 +258,7 @@ class PokeData
         ],
         17 => [
             'name' => 'Pidgeotto',
-            'type' => array('normal', 'flying'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FLYING),
             'from' => 16,
             'to' => 18,
             'story' => 'Pidgeotto claims a large area as its own territory. This Pokémon flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws.',
@@ -264,7 +266,7 @@ class PokeData
         ],
         18 => [
             'name' => 'Pidgeot',
-            'type' => array('normal', 'flying'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FLYING),
             'from' => 17,
             'to' => NULL,
             'story' => 'This Pokémon has a dazzling plumage of beautifully glossy feathers. Many Trainers are captivated by the striking beauty of the feathers on its head, compelling them to choose Pidgeot as their Pokémon.',
@@ -272,7 +274,7 @@ class PokeData
         ],
         19 => [
             'name' => 'Rattata',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => 20,
             'story' => 'Rattata is cautious in the extreme. Even while it is asleep, it constantly listens by moving its ears around. It is not picky about where it lives—it will make its nest anywhere.',
@@ -280,7 +282,7 @@ class PokeData
         ],
         20 => [
             'name' => 'Raticate',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => 19,
             'to' => NULL,
             'story' => 'Raticate’s sturdy fangs grow steadily. To keep them ground down, it gnaws on rocks and logs. It may even chew on the walls of houses.',
@@ -288,7 +290,7 @@ class PokeData
         ],
         21 => [
             'name' => 'Spearow',
-            'type' => array('normal', 'flying'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => 22,
             'story' => 'Spearow has a very loud cry that can be heard over half a mile away. If its high, keening cry is heard echoing all around, it is a sign that they are warning each other of danger.',
@@ -296,7 +298,7 @@ class PokeData
         ],
         22 => [
             'name' => 'Fearow',
-            'type' => array('normal', 'flying'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FLYING),
             'from' => 21,
             'to' => NULL,
             'story' => 'Fearow is recognized by its long neck and elongated beak. They are conveniently shaped for catching prey in soil or water. It deftly moves its long and skinny beak to pluck prey.',
@@ -304,7 +306,7 @@ class PokeData
         ],
         23 => [
             'name' => 'Ekans',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 24,
             'story' => 'Ekans curls itself up in a spiral while it rests. Assuming this position allows it to quickly respond to a threat from any direction with a glare from its upraised head.',
@@ -312,7 +314,7 @@ class PokeData
         ],
         24 => [
             'name' => 'Arbok',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => 23,
             'to' => NULL,
             'story' => 'This Pokémon is terrifically strong in order to constrict things with its body. It can even flatten steel oil drums. Once Arbok wraps its body around its foe, escaping its crunching embrace is impossible.',
@@ -320,7 +322,7 @@ class PokeData
         ],
         25 => [
             'name' => 'Pikachu',
-            'type' => array('electric'),
+            'type' => array(PokeType::TYPE_ELECTRIC),
             'from' => NULL,
             'to' => 26,
             'story' => 'Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it\'s evidence that this Pokémon mistook the intensity of its charge.',
@@ -328,7 +330,7 @@ class PokeData
         ],
         26 => [
             'name' => 'Raichu',
-            'type' => array('electric'),
+            'type' => array(PokeType::TYPE_ELECTRIC),
             'from' => 25,
             'to' => NULL,
             'story' => 'If the electrical sacs become excessively charged, Raichu plants its tail in the ground and discharges. Scorched patches of ground will be found near this Pokémon\'s nest.',
@@ -336,7 +338,7 @@ class PokeData
         ],
         27 => [
             'name' => 'Sandshrew',
-            'type' => array('ground'),
+            'type' => array(PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => 28,
             'story' => 'Sandshrew\'s body is configured to absorb water without waste, enabling it to survive in an arid desert. This Pokémon curls up to protect itself from its enemies.',
@@ -344,7 +346,7 @@ class PokeData
         ],
         28 => [
             'name' => 'Sandslash',
-            'type' => array('ground'),
+            'type' => array(PokeType::TYPE_GROUND),
             'from' => 27,
             'to' => NULL,
             'story' => 'Sandslash\'s body is covered by tough spikes, which are hardened sections of its hide. Once a year, the old spikes fall out, to be replaced with new spikes that grow out from beneath the old ones.',
@@ -352,7 +354,7 @@ class PokeData
         ],
         29 => [
             'name' => 'Nidoran♀',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 30,
             'story' => 'Nidoran♀ has barbs that secrete a powerful poison. They are thought to have developed as protection for this small-bodied Pokémon. When enraged, it releases a horrible toxin from its horn.',
@@ -360,7 +362,7 @@ class PokeData
         ],
         30 => [
             'name' => 'Nidorina',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => 29,
             'to' => 31,
             'story' => 'When Nidorina are with their friends or family, they keep their barbs tucked away to prevent hurting each other. This Pokémon appears to become nervous if separated from the others.',
@@ -368,7 +370,7 @@ class PokeData
         ],
         31 => [
             'name' => 'Nidoqueen',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => 30,
             'to' => NULL,
             'story' => 'Nidoqueen\'s body is encased in extremely hard scales. It is adept at sending foes flying with harsh tackles. This Pokémon is at its strongest when it is defending its young.',
@@ -376,7 +378,7 @@ class PokeData
         ],
         32 => [
             'name' => 'Nidoran♂',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 33,
             'story' => 'Nidoran♂ has developed muscles for moving its ears. Thanks to them, the ears can be freely moved in any direction. Even the slightest sound does not escape this Pokémon\'s notice.',
@@ -384,7 +386,7 @@ class PokeData
         ],
         33 => [
             'name' => 'Nidorino',
-            'type' => array('poison', 'ground'),
+            'type' => array(PokeType::TYPE_POISON, PokeType::TYPE_GROUND),
             'from' => 32,
             'to' => 34,
             'story' => 'Nidorino has a horn that is harder than a diamond. If it senses a hostile presence, all the barbs on its back bristle up at once, and it challenges the foe with all its might.',
@@ -392,7 +394,7 @@ class PokeData
         ],
         34 => [
             'name' => 'Nidoking',
-            'type' => array('poison', 'ground'),
+            'type' => array(PokeType::TYPE_POISON, PokeType::TYPE_GROUND),
             'from' => 33,
             'to' => NULL,
             'story' => 'Nidoking\'s thick tail packs enormously destructive power. With one swing, it can topple a metal transmission tower. Once this Pokémon goes on a rampage, there is no stopping it.',
@@ -400,7 +402,7 @@ class PokeData
         ],
         35 => [
             'name' => 'Clefairy',
-            'type' => array('fairy'),
+            'type' => array(PokeType::TYPE_FAIRY),
             'from' => NULL,
             'to' => 36,
             'story' => 'On every night of a full moon, groups of this Pokémon come out to play. When dawn arrives, the tired Clefairy return to their quiet mountain retreats and go to sleep nestled up against each other.',
@@ -408,7 +410,7 @@ class PokeData
         ],
         36 => [
             'name' => 'Clefable',
-            'type' => array('fairy'),
+            'type' => array(PokeType::TYPE_FAIRY),
             'from' => 35,
             'to' => NULL,
             'story' => 'Clefable moves by skipping lightly as if it were flying using its wings. Its bouncy step even lets it walk on water. It is known to take strolls on lakes on quiet, moonlit nights.',
@@ -416,7 +418,7 @@ class PokeData
         ],
         37 => [
             'name' => 'Vulpix',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => NULL,
             'to' => 38,
             'story' => 'At the time of its birth, Vulpix has one white tail. The tail separates into six if this Pokémon receives plenty of love from its trainer. The six tails become magnificently curled.',
@@ -424,7 +426,7 @@ class PokeData
         ],
         38 => [
             'name' => 'Ninetales',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => 37,
             'to' => NULL,
             'story' => 'Ninetales casts a sinister light from its bright red eyes to gain total control over its foe\'s mind. This Pokémon is said to live for one thousand years.',
@@ -432,7 +434,7 @@ class PokeData
         ],
         39 => [
             'name' => 'Jigglypuff',
-            'type' => array('normal', 'fairy'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FAIRY),
             'from' => NULL,
             'to' => 40,
             'story' => 'Jigglypuff\'s vocal cords can freely adjust the wavelength of its voice. This Pokémon uses this ability to sing at precisely the right wavelength to make its foes most drowsy.',
@@ -440,7 +442,7 @@ class PokeData
         ],
         40 => [
             'name' => 'Wigglytuff',
-            'type' => array('normal', 'fairy'),
+            'type' => array(PokeType::TYPE_NORMAL, PokeType::TYPE_FAIRY),
             'from' => 39,
             'to' => NULL,
             'story' => 'Wigglytuff has large, saucerlike eyes. The surfaces of its eyes are always covered with a thin layer of tears. If any dust gets in this Pokémon\'s eyes, it is quickly washed away.',
@@ -448,7 +450,7 @@ class PokeData
         ],
         41 => [
             'name' => 'Zubat',
-            'type' => array('poison', 'flying'),
+            'type' => array(PokeType::TYPE_POISON, PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => 42,
             'story' => 'Zubat remains quietly unmoving in a dark spot during the bright daylight hours. It does so because prolonged exposure to the sun causes its body to become slightly burned.',
@@ -456,7 +458,7 @@ class PokeData
         ],
         42 => [
             'name' => 'Golbat',
-            'type' => array('poison', 'flying'),
+            'type' => array(PokeType::TYPE_POISON, PokeType::TYPE_FLYING),
             'from' => 41,
             'to' => NULL,
             'story' => '	Zubat remains quietly unmoving in a dark spot during the bright daylight hours. It does so because prolonged exposure to the sun causes its body to become slightly burned.',
@@ -464,7 +466,7 @@ class PokeData
         ],
         43 => [
             'name' => 'Oddish',
-            'type' => array('grass', 'poison'),
+            'type' => array(PokeType::TYPE_GRASS, PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 44,
             'story' => 'During the daytime, Oddish buries itself in soil to absorb nutrients from the ground using its entire body. The more fertile the soil, the glossier its leaves become.',
@@ -472,7 +474,7 @@ class PokeData
         ],
         44 => [
             'name' => 'Gloom',
-            'type' => array('grass', 'poison'),
+            'type' => array(PokeType::TYPE_GRASS, PokeType::TYPE_POISON),
             'from' => 43,
             'to' => 45,
             'story' => 'Gloom releases a foul fragrance from the pistil of its flower. When faced with danger, the stench worsens. If this Pokémon is feeling calm and secure, it does not release its usual stinky aroma.',
@@ -480,7 +482,7 @@ class PokeData
         ],
         45 => [
             'name' => 'Vileplume',
-            'type' => array('grass', 'poison'),
+            'type' => array(PokeType::TYPE_GRASS, PokeType::TYPE_POISON),
             'from' => 44,
             'to' => NULL,
             'story' => '	Vileplume\'s toxic pollen triggers atrocious allergy attacks. That\'s why it is advisable never to approach any attractive flowers in a jungle, however pretty they may be.',
@@ -488,7 +490,7 @@ class PokeData
         ],
         46 => [
             'name' => 'Paras',
-            'type' => array('bug', 'grass'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_GRASS),
             'from' => NULL,
             'to' => 47,
             'story' => '	Paras has parasitic mushrooms growing on its back called tochukaso. They grow large by drawing nutrients from this Bug Pokémon host. They are highly valued as a medicine for extending life.',
@@ -496,7 +498,7 @@ class PokeData
         ],
         47 => [
             'name' => 'Parasect',
-            'type' => array('bug', 'grass'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_GRASS),
             'from' => 46,
             'to' => NULL,
             'story' => '	Parasect is known to infest large trees en masse and drain nutrients from the lower trunk and roots. When an infested tree dies, they move onto another tree all at once.',
@@ -504,7 +506,7 @@ class PokeData
         ],
         48 => [
             'name' => 'Venonat',
-            'type' => array('bug', 'poison'),
+            'type' => array(PokeType::TYPE_BUG, PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 49,
             'story' => '	Venonat is said to have evolved with a coat of thin, stiff hair that covers its entire body for protection. It possesses large eyes that never fail to spot even miniscule prey.',
@@ -520,7 +522,7 @@ class PokeData
         ],
         50 => [
             'name' => 'Diglett',
-            'type' => array('ground'),
+            'type' => array(PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => 51,
             'story' => '	Diglett are raised in most farms. The reason is simple—wherever this Pokémon burrows, the soil is left perfectly tilled for planting crops. This soil is made ideal for growing delicious vegetables.',
@@ -528,7 +530,7 @@ class PokeData
         ],
         51 => [
             'name' => 'Dugtrio',
-            'type' => array('ground'),
+            'type' => array(PokeType::TYPE_GROUND),
             'from' => 50,
             'to' => NULL,
             'story' => 'Dugtrio are actually triplets that emerged from one body. As a result, each triplet thinks exactly like the other two triplets. They work cooperatively to burrow endlessly.',
@@ -536,7 +538,7 @@ class PokeData
         ],
         52 => [
             'name' => 'Meowth',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => 53,
             'story' => '	Pokedex Entry #052: Meowth is a Normal Type Pokemon. It evolves into Persian. Meowth withdraws its sharp claws into its paws to slinkily sneak about without making any incriminating footsteps. For some reason, this Pokémon loves shiny coins that glitter with light.',
@@ -544,7 +546,7 @@ class PokeData
         ],
         53 => [
             'name' => 'Persian',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => 52,
             'to' => NULL,
             'story' => 'Persian has six bold whiskers that give it a look of toughness. The whiskers sense air movements to determine what is in the Pokémon\'s surrounding vicinity.',
@@ -552,7 +554,7 @@ class PokeData
         ],
         54 => [
             'name' => 'Psyduck',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 55,
             'story' => 'Persian has six bold whiskers that give it a look of toughness. The whiskers sense air movements to determine what is in the Pokémon\'s surrounding vicinity.',
@@ -560,7 +562,7 @@ class PokeData
         ],
         55 => [
             'name' => 'Golduck',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => 'The webbed flippers on its forelegs and hind legs and the streamlined body of Golduck give it frightening speed. The Pokémon is definitely much faster than even the most athletic swimmer.',
@@ -568,7 +570,7 @@ class PokeData
         ],
         56 => [
             'name' => 'Mankey',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => NULL,
             'to' => 57,
             'story' => 'When Mankey starts shaking and its nasal breathing turns rough, it\'s a sure sign that it is becoming angry. However, because it goes into a towering rage almost instantly, it is impossible for anyone to flee its wrath.',
@@ -576,7 +578,7 @@ class PokeData
         ],
         57 => [
             'name' => 'Primeape',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => 56,
             'to' => NULL,
             'story' => '	When Primeape becomes furious, its blood circulation is boosted. In turn, its muscles are made even stronger. However, it also becomes much less intelligent at the same time.',
@@ -584,7 +586,7 @@ class PokeData
         ],
         58 => [
             'name' => 'Growlithe',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => NULL,
             'to' => 59,
             'story' => 'Growlithe has a superb sense of smell. Once it smells anything, this Pokémon won\'t forget the scent, no matter what. It uses its advanced olfactory sense to determine the emotions of other living things.',
@@ -592,7 +594,7 @@ class PokeData
         ],
         59 => [
             'name' => 'Arcanine',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => 58,
             'to' => NULL,
             'story' => 'Arcanine is known for its high speed. It is said to be capable of running over 6,200 miles in a single day and night. The fire that blazes wildly within this Pokémon\'s body is its source of power.',
@@ -600,7 +602,7 @@ class PokeData
         ],
         60 => [
             'name' => 'Poliwag',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 61,
             'story' => '	Poliwag has a very thin skin. It is possible to see the Pokémon\'s spiral innards right through the skin. Despite its thinness, however, the skin is also very flexible. Even sharp fangs bounce right off it.',
@@ -608,7 +610,7 @@ class PokeData
         ],
         61 => [
             'name' => 'Poliwhirl',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => 60,
             'to' => 62,
             'story' => 'The surface of Poliwhirl\'s body is always wet and slick with an oily fluid. Because of this greasy covering, it can easily slip and slide out of the clutches of any enemy in battle.',
@@ -616,7 +618,7 @@ class PokeData
         ],
         62 => [
             'name' => 'Poliwrath',
-            'type' => array('water','fighting'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_FIGHTING),
             'from' => 61,
             'to' => NULL,
             'story' => 'Poliwrath\'s highly developed, brawny muscles never grow fatigued, however much it exercises. It is so tirelessly strong, this Pokémon can swim back and forth across the ocean without effort.',
@@ -624,7 +626,7 @@ class PokeData
         ],
         63 => [
             'name' => 'Abra',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => 64,
             'story' => '	Abra sleeps for eighteen hours a day. However, it can sense the presence of foes even while it is sleeping. In such a situation, this Pokémon immediately teleports to safety.',
@@ -632,7 +634,7 @@ class PokeData
         ],
         64 => [
             'name' => 'Kadabra',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => 63,
             'to' => 65,
             'story' => 'Kadabra emits a peculiar alpha wave if it develops a headache. Only those people with a particularly strong psyche can hope to become a trainer of this Pokémon.',
@@ -640,7 +642,7 @@ class PokeData
         ],
         65 => [
             'name' => 'Alakazam',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => 64,
             'to' => NULL,
             'story' => 'Alakazam\'s brain continually grows, making its head far too heavy to support with its neck. This Pokémon holds its head up using its psychokinetic power instead.',
@@ -648,7 +650,7 @@ class PokeData
         ],
         66 => [
             'name' => 'Machop',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => NULL,
             'to' => 67,
             'story' => 'Machoke\'s thoroughly toned muscles possess the hardness of steel. This Pokémon has so much strength, it can easily hold aloft a sumo wrestler on just one finger.',
@@ -656,7 +658,7 @@ class PokeData
         ],
         67 => [
             'name' => 'Machoke',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => 66,
             'to' => 68,
             'story' => 'Machop\'s muscles are special—they never get sore no matter how much they are used in exercise. This Pokémon has sufficient power to hurl a hundred adult humans.',
@@ -664,7 +666,7 @@ class PokeData
         ],
         68 => [
             'name' => 'Machamp',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => 67,
             'to' => NULL,
             'story' => '	Machamp has the power to hurl anything aside. However, trying to do any work requiring care and dexterity causes its arms to get tangled. This Pokémon tends to leap into action before it thinks.',
@@ -672,7 +674,7 @@ class PokeData
         ],
         69 => [
             'name' => 'Bellsprout',
-            'type' => array('grass','poison'),
+            'type' => array(PokeType::TYPE_GRASS,PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 70,
             'story' => 'Bellsprout\'s thin and flexible body lets it bend and sway to avoid any attack, however strong it may be. From its mouth, this Pokémon spits a corrosive fluid that melts even iron.',
@@ -680,7 +682,7 @@ class PokeData
         ],
         70 => [
             'name' => 'Weepinbell',
-            'type' => array('grass','poison'),
+            'type' => array(PokeType::TYPE_GRASS,PokeType::TYPE_POISON),
             'from' => 69,
             'to' => 71,
             'story' => '	Weepinbell has a large hook on its rear end. At night, the Pokémon hooks on to a tree branch and goes to sleep. If it moves around in its sleep, it may wake up to find itself on the ground.',
@@ -688,7 +690,7 @@ class PokeData
         ],
         71 => [
             'name' => 'Victreebel',
-            'type' => array('grass','poison'),
+            'type' => array(PokeType::TYPE_GRASS,PokeType::TYPE_POISON),
             'from' => 70,
             'to' => NULL,
             'story' => '	Victreebel has a long vine that extends from its head. This vine is waved and flicked about as if it were an animal to attract prey. When an unsuspecting prey draws near, this Pokémon swallows it whole.',
@@ -696,7 +698,7 @@ class PokeData
         ],
         72 => [
             'name' => 'Tentacool',
-            'type' => array('water','poison'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 73,
             'story' => '	Tentacool\'s body is largely composed of water. If it is removed from the sea, it dries up like parchment. If this Pokémon happens to become dehydrated, put it back into the sea.',
@@ -704,7 +706,7 @@ class PokeData
         ],
         73 => [
             'name' => 'Tentacruel',
-            'type' => array('water','poison'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_POISON),
             'from' => 72,
             'to' => NULL,
             'story' => 'Tentacruel has large red orbs on its head. The orbs glow before lashing the vicinity with a harsh ultrasonic blast. This Pokémon\'s outburst creates rough waves around it.',
@@ -712,7 +714,7 @@ class PokeData
         ],
         74 => [
             'name' => 'Geodude',
-            'type' => array('rock','ground'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => 75,
             'story' => '	The longer a Geodude lives, the more its edges are chipped and worn away, making it more rounded in appearance. However, this Pokémon\'s heart will remain hard, craggy, and rough always.',
@@ -720,7 +722,7 @@ class PokeData
         ],
         75 => [
             'name' => 'Graveler',
-            'type' => array('rock','ground'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_GROUND),
             'from' => 74,
             'to' => NULL,
             'story' => '	Graveler grows by feeding on rocks. Apparently, it prefers to eat rocks that are covered in moss. This Pokémon eats its way through a ton of rocks on a daily basis.',
@@ -728,7 +730,7 @@ class PokeData
         ],
         76 => [
             'name' => 'Golem',
-            'type' => array('rock','ground'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Golem live up on mountains. If there is a large earthquake, these Pokémon will come rolling down off the mountains en masse to the foothills below.',
@@ -736,7 +738,7 @@ class PokeData
         ],
         77 => [
             'name' => 'Ponyta',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => NULL,
             'to' => 78,
             'story' => '	Ponyta is very weak at birth. It can barely stand up. This Pokémon becomes stronger by stumbling and falling to keep up with its parent.',
@@ -744,7 +746,7 @@ class PokeData
         ],
         78 => [
             'name' => 'Rapidash',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => 77,
             'to' => NULL,
             'story' => '	Rapidash usually can be seen casually cantering in the fields and plains. However, when this Pokémon turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph.',
@@ -752,7 +754,7 @@ class PokeData
         ],
         79 => [
             'name' => 'Slowpoke',
-            'type' => array('water','psychic'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => 80,
             'story' => 'Slowpoke uses its tail to catch prey by dipping it in water at the side of a river. However, this Pokémon often forgets what it\'s doing and often spends entire days just loafing at water\'s edge.',
@@ -760,7 +762,7 @@ class PokeData
         ],
         80 => [
             'name' => 'Slowbro',
-            'type' => array('water','psychic'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_PSYCHIC),
             'from' => 79,
             'to' => NULL,
             'story' => '	Slowbro\'s tail has a Shellder firmly attached with a bite. As a result, the tail can\'t be used for fishing anymore. This causes Slowbro to grudgingly swim and catch prey instead.',
@@ -768,7 +770,7 @@ class PokeData
         ],
         81 => [
             'name' => 'Magnemite',
-            'type' => array('water','steel'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_STEEL),
             'from' => NULL,
             'to' => 82,
             'story' => '	Magnemite attaches itself to power lines to feed on electricity. If your house has a power outage, check your circuit breakers. You may find a large number of this Pokémon clinging to the breaker box.',
@@ -776,7 +778,7 @@ class PokeData
         ],
         82 => [
             'name' => 'Magneton',
-            'type' => array('electric','steel'),
+            'type' => array(PokeType::TYPE_ELECTRIC,PokeType::TYPE_STEEL),
             'from' => 81,
             'to' => NULL,
             'story' => '	Magneton emits a powerful magnetic force that is fatal to mechanical devices. As a result, large cities sound sirens to warn citizens of large-scale outbreaks of this Pokémon.',
@@ -784,7 +786,7 @@ class PokeData
         ],
         83 => [
             'name' => 'Farfetch\'d',
-            'type' => array('normal','flying'),
+            'type' => array(PokeType::TYPE_NORMAL,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Farfetch\'d is always seen with a stalk from a plant of some sort. Apparently, there are good stalks and bad stalks. This Pokémon has been known to fight with others over stalks.',
@@ -792,7 +794,7 @@ class PokeData
         ],
         84 => [
             'name' => 'Doduo',
-            'type' => array('normal','flying'),
+            'type' => array(PokeType::TYPE_NORMAL,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => 85,
             'story' => '	Doduo\'s two heads never sleep at the same time. Its two heads take turns sleeping, so one head can always keep watch for enemies while the other one sleeps.',
@@ -800,7 +802,7 @@ class PokeData
         ],
         85 => [
             'name' => 'Dodrio',
-            'type' => array('normal','flying'),
+            'type' => array(PokeType::TYPE_NORMAL,PokeType::TYPE_FLYING),
             'from' => 84,
             'to' => NULL,
             'story' => 'Watch out if Dodrio\'s three heads are looking in three separate directions. It\'s a sure sign that it is on its guard. Don\'t go near this Pokémon if it\'s being wary-it may decide to peck you.',
@@ -808,7 +810,7 @@ class PokeData
         ],
         86 => [
             'name' => 'Seel',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 87,
             'story' => '	Seel hunts for prey in the frigid sea underneath sheets of ice. When it needs to breathe, it punches a hole through the ice with the sharply protruding section of its head.',
@@ -816,7 +818,7 @@ class PokeData
         ],
         87 => [
             'name' => 'Dewgong',
-            'type' => array('water','ice'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_ICE),
             'from' => 86,
             'to' => NULL,
             'story' => 'Dewgong loves to snooze on bitterly cold ice. The sight of this Pokémon sleeping on a glacier was mistakenly thought to be a mermaid by a mariner long ago.',
@@ -824,7 +826,7 @@ class PokeData
         ],
         88 => [
             'name' => 'Grimer',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 89,
             'story' => '	Grimer\'s sludgy and rubbery body can be forced through any opening, however small it may be. This Pokémon enters sewer pipes to drink filthy wastewater.',
@@ -832,7 +834,7 @@ class PokeData
         ],
         89 => [
             'name' => 'Muk',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => 88,
             'to' => NULL,
             'story' => '	From Muk\'s body seeps a foul fluid that gives off a nose-bendingly horrible stench. Just one drop of this Pokémon\'s body fluid can turn a pool stagnant and rancid.',
@@ -840,7 +842,7 @@ class PokeData
         ],
         90 => [
             'name' => 'Shellder',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 91,
             'story' => '	From Muk\'s body seeps a foul fluid that gives off a nose-bendingly horrible stench. Just one drop of this Pokémon\'s body fluid can turn a pool stagnant and rancid.',
@@ -848,7 +850,7 @@ class PokeData
         ],
         91 => [
             'name' => 'Cloyster',
-            'type' => array('water','ice'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_ICE),
             'from' => 90,
             'to' => NULL,
             'story' => '	Cloyster is capable of swimming in the sea. It does so by swallowing water, then jetting it out toward the rear. This Pokémon shoots spikes from its shell using the same system.',
@@ -856,7 +858,7 @@ class PokeData
         ],
         92 => [
             'name' => 'Gastly',
-            'type' => array('ghost','poison'),
+            'type' => array(PokeType::TYPE_GHOST,PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Gastly is largely composed of gaseous matter. When exposed to a strong wind, the gaseous body quickly dwindles away. Groups of this Pokémon cluster under the eaves of houses to escape the ravages of wind.',
@@ -864,7 +866,7 @@ class PokeData
         ],
         93 => [
             'name' => 'Haunter',
-            'type' => array('ghost','poison'),
+            'type' => array(PokeType::TYPE_GHOST,PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Haunter is a dangerous Pokémon. If one beckons you while floating in darkness, you must never approach it. This Pokémon will try to lick you with its tongue and steal your life away.',
@@ -872,7 +874,7 @@ class PokeData
         ],
         94 => [
             'name' => 'Gengar',
-            'type' => array('ghost','poison'),
+            'type' => array(PokeType::TYPE_GHOST,PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Sometimes, on a dark night, your shadow thrown by a streetlight will suddenly and startlingly overtake you. It is actually a Gengar running past you, pretending to be your shadow.	',
@@ -880,7 +882,7 @@ class PokeData
         ],
         95 => [
             'name' => 'Onix',
-            'type' => array('rock','ground'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Onix has a magnet in its brain. It acts as a compass so that this Pokémon does not lose direction while it is tunneling. As it grows older, its body becomes increasingly rounder and smoother.',
@@ -888,7 +890,7 @@ class PokeData
         ],
         96 => [
             'name' => 'Drowzee',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => NULL,
             'story' => '	If your nose becomes itchy while you are sleeping, it\'s a sure sign that one of these Pokémon is standing above your pillow and trying to eat you dream through your nostrils.',
@@ -896,7 +898,7 @@ class PokeData
         ],
         97 => [
             'name' => 'Hypno',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Hypno holds a pendulum in its hand. The arcing movement and glitter of the pendulum lull the foe into a deep state of hypnosis. While this Pokémon searches for prey, it polishes the pendulum.',
@@ -904,7 +906,7 @@ class PokeData
         ],
         98 => [
             'name' => 'Krabby',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Krabby live on beaches, burrowed inside holes dug into the sand. On sandy beaches with little in the way of food, these Pokémon can be seen squabbling with each other over territory.',
@@ -912,7 +914,7 @@ class PokeData
         ],
         99 => [
             'name' => 'Kingler',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Kingler has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the Pokémon quickly tires.',
@@ -920,7 +922,7 @@ class PokeData
         ],
         100 => [
             'name' => 'Caterpie',
-            'type' => array('bug'),
+            'type' => array(PokeType::TYPE_BUG),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Caterpie has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this Pokémon releases a terrifically strong ',
@@ -928,7 +930,7 @@ class PokeData
         ],
         101 => [
             'name' => 'Electrode',
-            'type' => array('electric'),
+            'type' => array(PokeType::TYPE_ELECTRIC),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Electrode eats electricity in the atmosphere. On days when lightning strikes, you can see this Pokémon exploding all over the place from eating too much electricity.',
@@ -936,7 +938,7 @@ class PokeData
         ],
         102 => [
             'name' => 'Exeggcute',
-            'type' => array('grass', 'psychic'),
+            'type' => array(PokeType::TYPE_GRASS, PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => 103,
             'story' => '	Electrode eats electricity in the atmosphere. On days when lightning strikes, you can see this Pokémon exploding all over the place from eating too much electricity.',
@@ -944,7 +946,7 @@ class PokeData
         ],
         103 => [
             'name' => 'Exeggutor',
-            'type' => array('grass', 'psychic'),
+            'type' => array(PokeType::TYPE_GRASS, PokeType::TYPE_PSYCHIC),
             'from' => 102,
             'to' => NULL,
             'story' => '	Exeggutor originally came from the tropics. Its heads steadily grow larger from exposure to strong sunlight. It is said that when the heads fall off, they group together to form Exeggcute.',
@@ -952,7 +954,7 @@ class PokeData
         ],
         104 => [
             'name' => 'Cubone',
-            'type' => array('ground'),
+            'type' => array(PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Cubone pines for the mother it will never see again. Seeing a likeness of its mother in the full moon, it cries. The stains on the skull the Pokémon wears are made by the tears it sheds.',
@@ -960,7 +962,7 @@ class PokeData
         ],
         105 => [
             'name' => 'Marowak',
-            'type' => array('ground'),
+            'type' => array(PokeType::TYPE_GROUND),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Hitmonlee\'s legs freely contract and stretch. Using these springlike legs, it bowls over foes with devastating kicks. After battle, it rubs down its legs and loosens the muscles to overcome fatigue.',
@@ -968,7 +970,7 @@ class PokeData
         ],
         106 => [
             'name' => 'Hitmonlee',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Hitmonlee\'s legs freely contract and stretch. Using these springlike legs, it bowls over foes with devastating kicks. After battle, it rubs down its legs and loosens the muscles to overcome fatigue.',
@@ -976,7 +978,7 @@ class PokeData
         ],
         107 => [
             'name' => 'Hitmonchan',
-            'type' => array('fighting'),
+            'type' => array(PokeType::TYPE_FIGHTING),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Hitmonchan is said to possess the spirit of a boxer who had been working toward a world championship. This Pokémon has an indomitable spirit and will never give up in the face of adversity.',
@@ -984,7 +986,7 @@ class PokeData
         ],
         108 => [
             'name' => 'Lickitung',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Whenever Lickitung comes across something new, it will unfailingly give it a lick. It does so because it memorizes things by texture and by taste. It is somewhat put off by sour things.',
@@ -992,7 +994,7 @@ class PokeData
         ],
         109 => [
             'name' => 'Koffing',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => NULL,
             'to' => 110,
             'story' => '	If Koffing becomes agitated, it raises the toxicity of its internal gases and then jets them out from all over its body. This Pokémon may also overinflate its round body, then explode.',
@@ -1000,7 +1002,7 @@ class PokeData
         ],
         110 => [
             'name' => 'Weezing',
-            'type' => array('poison'),
+            'type' => array(PokeType::TYPE_POISON),
             'from' => 109,
             'to' => NULL,
             'story' => 'Weezing loves the gases given off by rotted kitchen garbage. This Pokémon will find a dirty, unkempt house and make it its home. At night, when the people in the house are asleep, it will go through the trash.',
@@ -1008,7 +1010,7 @@ class PokeData
         ],
         111 => [
             'name' => 'Rhyhorn',
-            'type' => array('ground','rock'),
+            'type' => array(PokeType::TYPE_GROUND,PokeType::TYPE_ROCK),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Rhyhorn runs in a straight line, smashing everything in its path. It is not bothered even if it rushes headlong into a block of steel. This Pokémon may feel some pain from the collision the next day, however.',
@@ -1016,7 +1018,7 @@ class PokeData
         ],
         112 => [
             'name' => 'Rhydon',
-            'type' => array('ground','rock'),
+            'type' => array(PokeType::TYPE_GROUND,PokeType::TYPE_ROCK),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Rhydon\'s horn can crush even uncut diamonds. One sweeping blow of its tail can topple a building. This Pokémon\'s hide is extremely tough. Even direct cannon hits don\'t leave a scratch.',
@@ -1024,7 +1026,7 @@ class PokeData
         ],
         113 => [
             'name' => 'Chansey',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Chansey lays nutritionally excellent eggs on an everyday basis. The eggs are so delicious, they are easily and eagerly devoured by even those people who have lost their appetite.',
@@ -1032,7 +1034,7 @@ class PokeData
         ],
         114 => [
             'name' => 'Tangela',
-            'type' => array('grass'),
+            'type' => array(PokeType::TYPE_GRASS),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Tangela\'s vines snap off easily if they are grabbed. This happens without pain, allowing it to make a quick getaway. The lost vines are replaced by newly grown vines the very next day.',
@@ -1040,7 +1042,7 @@ class PokeData
         ],
         115 => [
             'name' => 'Kangaskhan',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => '	If you come across a young Kangaskhan playing by itself, you must never disturb it or attempt to catch it. The baby Pokémon\'s parent is sure to be in the area, and it will become violently enraged at you.',
@@ -1048,7 +1050,7 @@ class PokeData
         ],
         116 => [
             'name' => 'Horsea',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Horsea eats small insects and moss off of rocks. If the ocean current turns fast, this Pokémon anchors itself by wrapping its tail around rocks or coral to prevent being washed away.',
@@ -1056,7 +1058,7 @@ class PokeData
         ],
         117 => [
             'name' => 'Seadra',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Seadra sleeps after wriggling itself between the branches of coral. Those trying to harvest coral are occasionally stung by this Pokémon\'s poison barbs if they fail to notice it.',
@@ -1064,7 +1066,7 @@ class PokeData
         ],
         118 => [
             'name' => 'Goldeen',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Goldeen is a very beautiful Pokémon with fins that billow elegantly in water. However, don\'t let your guard down around this Pokémon—it could ram you powerfully with its horn.',
@@ -1072,7 +1074,7 @@ class PokeData
         ],
         119 => [
             'name' => 'Seaking',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Goldeen is a very beautiful Pokémon with fins that billow elegantly in water. However, don\'t let your guard down around this Pokémon—it could ram you powerfully with its horn.',
@@ -1080,7 +1082,7 @@ class PokeData
         ],
         120 => [
             'name' => 'Staryu',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Staryu\'s center section has an organ called the core that shines bright red. If you go to a beach toward the end of summer, the glowing cores of these Pokémon look like the stars in the sky.',
@@ -1088,7 +1090,7 @@ class PokeData
         ],
         121 => [
             'name' => 'Starmie',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Starmie\'s center section-the core-glows brightly in seven colors. Because of its luminous nature, this Pokémon has been given the nickname "the gem of the sea.',
@@ -1104,7 +1106,7 @@ class PokeData
         ],
         123 => [
             'name' => 'Scyther',
-            'type' => array('bug','flying'),
+            'type' => array(PokeType::TYPE_BUG,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Scyther is blindingly fast. Its blazing speed enhances the effectiveness of the twin scythes on its forearms. This Pokémon\'s scythes are so effective, they can slice through thick logs in one wicked stroke.',
@@ -1112,7 +1114,7 @@ class PokeData
         ],
         124 => [
             'name' => 'Jynx',
-            'type' => array('ice','psychic'),
+            'type' => array(PokeType::TYPE_ICE,PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Jynx walks rhythmically, swaying and shaking its hips as if it were dancing. Its motions are so bouncingly alluring, people seeing it are compelled to shake their hips without giving any thought to what they are doing.',
@@ -1120,7 +1122,7 @@ class PokeData
         ],
         125 => [
             'name' => 'Electabuzz',
-            'type' => array('electric'),
+            'type' => array(PokeType::TYPE_ELECTRIC),
             'from' => NULL,
             'to' => NULL,
             'story' => 'When a storm arrives, gangs of this Pokémon compete with each other to scale heights that are likely to be stricken by lightning bolts. Some towns use Electabuzz in place of lightning rods.',
@@ -1128,7 +1130,7 @@ class PokeData
         ],
         126 => [
             'name' => 'Magmar',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => NULL,
             'to' => NULL,
             'story' => '	In battle, Magmar blows out intensely hot flames from all over its body to intimidate its opponent. This Pokémon\'s fiery bursts create heat waves that ignite grass and trees in its surroundings.',
@@ -1136,7 +1138,7 @@ class PokeData
         ],
         127 => [
             'name' => 'Pinsir',
-            'type' => array('bug'),
+            'type' => array(PokeType::TYPE_BUG),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Pinsir is astoundingly strong. It can grip a foe weighing twice its weight in its horns and easily lift it. This Pokémon\'s movements turn sluggish in cold places.',
@@ -1144,7 +1146,7 @@ class PokeData
         ],
         128 => [
             'name' => 'Tauros',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => 'This Pokémon is not satisfied unless it is rampaging at all times. If there is no opponent for Tauros to battle, it will charge at thick trees and knock them down to calm itself.',
@@ -1152,7 +1154,7 @@ class PokeData
         ],
         129 => [
             'name' => 'Magikarp',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 130,
             'story' => '	Magikarp is a pathetic excuse for a Pokémon that is only capable of flopping and splashing. This behavior prompted scientists to undertake research into it.',
@@ -1160,7 +1162,7 @@ class PokeData
         ],
         130 => [
             'name' => 'Gyarados',
-            'type' => array('water','flying'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_FLYING),
             'from' => 129,
             'to' => NULL,
             'story' => 'When Magikarp evolves into Gyarados, its brain cells undergo a structural transformation. It is said that this transformation is to blame for this Pokémon\'s wildly violent nature.',
@@ -1168,7 +1170,7 @@ class PokeData
         ],
         131 => [
             'name' => 'Lapras',
-            'type' => array('water','ice'),
+            'type' => array(PokeType::TYPE_WATER,PokeType::TYPE_ICE),
             'from' => NULL,
             'to' => NULL,
             'story' => '	People have driven Lapras almost to the point of extinction. In the evenings, this Pokémon is said to sing plaintively as it seeks what few others of its kind still remain.',
@@ -1176,7 +1178,7 @@ class PokeData
         ],
         132 => [
             'name' => 'Ditto',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Ditto rearranges its cell structure to transform itself into other shapes. However, if it tries to transform itself into something by relying on its memory, this Pokémon manages to get details wrong.',
@@ -1184,7 +1186,7 @@ class PokeData
         ],
         133 => [
             'name' => 'Eevee',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Eevee has an unstable genetic makeup that suddenly mutates due to the environment in which it lives. Radiation from various stones causes this Pokémon to evolve.',
@@ -1192,7 +1194,7 @@ class PokeData
         ],
         134 => [
             'name' => 'Vaporeon',
-            'type' => array('water'),
+            'type' => array(PokeType::TYPE_WATER),
             'from' => 133,
             'to' => NULL,
             'story' => 'Vaporeon underwent a spontaneous mutation and grew fins and gills that allow it to live underwater. This Pokémon has the ability to freely control water.',
@@ -1200,7 +1202,7 @@ class PokeData
         ],
         135 => [
             'name' => 'Jolteon',
-            'type' => array('electric'),
+            'type' => array(PokeType::TYPE_ELECTRIC),
             'from' => 133,
             'to' => NULL,
             'story' => 'Jolteon\'s cells generate a low level of electricity. This power is amplified by the static electricity of its fur, enabling the Pokémon to drop thunderbolts. The bristling fur is made of electrically charged needles.',
@@ -1208,7 +1210,7 @@ class PokeData
         ],
         136 => [
             'name' => 'Flareon',
-            'type' => array('fire'),
+            'type' => array(PokeType::TYPE_FIRE),
             'from' => 133,
             'to' => NULL,
             'story' => '	Flareon\'s fluffy fur has a functional purpose-it releases heat into the air so that its body does not get excessively hot. This Pokémon\'s body temperature can rise to a maximum of 1,650 degrees Fahrenheit.	Flareon\'s fluffy fur has a functional purpose-it releases heat into the air so that its body does not get excessively hot. This Pokémon\'s body temperature can rise to a maximum of 1,650 degrees Fahrenheit.	Flareon\'s fluffy fur has a functional purpose-it releases heat into the air so that its body does not get excessively hot. This Pokémon\'s body temperature can rise to a maximum of 1,650 degrees Fahrenheit.',
@@ -1216,7 +1218,7 @@ class PokeData
         ],
         137 => [
             'name' => 'Porygon',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Porygon is capable of reverting itself entirely back to program data and entering cyberspace. This Pokémon is copy-protected so it cannot be duplicated by copying.',
@@ -1224,7 +1226,7 @@ class PokeData
         ],
         138 => [
             'name' => 'Omanyte',
-            'type' => array('water','rock'),
+            'type' => array(PokeType::TYPE_WATER, PokeType::TYPE_ROCK),
             'from' => NULL,
             'to' => 139,
             'story' => 'Omanyte is one of the ancient and long-since-extinct Pokémon that have been regenerated from fossils by people. If attacked by an enemy, it withdraws itself inside its hard shell.',
@@ -1232,7 +1234,7 @@ class PokeData
         ],
         139 => [
             'name' => 'Omastar',
-            'type' => array('rock','water'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_WATER),
             'from' => 138,
             'to' => NULL,
             'story' => 'Omastar uses its tentacles to capture its prey. It is believed to have become extinct because its shell grew too large and heavy, causing its movements to become too slow and ponderous.',
@@ -1240,7 +1242,7 @@ class PokeData
         ],
         140 => [
             'name' => 'Kabuto',
-            'type' => array('rock','water'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_WATER),
             'from' => NULL,
             'to' => 141,
             'story' => 'Kabuto is a Pokémon that has been regenerated from a fossil. However, in extremely rare cases, living examples have been discovered. The Pokémon has not changed at all for 300 million years.',
@@ -1248,14 +1250,14 @@ class PokeData
         ],
         141 => [
             'name' => 'Kabutops',
-            'type' => array('rock','water'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_WATER),
             'from' => 140,
             'to' => NULL,
             'story' => 'Kabutops swam underwater to hunt for its prey in ancient times. The Pokémon was apparently evolving from being a water-dweller to living on land as evident from the beginnings of change in its gills and legs.',
         ],
         142 => [
             'name' => 'Aerodactyl',
-            'type' => array('rock','flying'),
+            'type' => array(PokeType::TYPE_ROCK,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Snorlax\'s typical day consists of nothing more than eating and sleeping. It is such a docile Pokémon that there are children who use its expansive belly as a place to play.',
@@ -1263,7 +1265,7 @@ class PokeData
         ],
         143 => [
             'name' => 'Snorlax',
-            'type' => array('normal'),
+            'type' => array(PokeType::TYPE_NORMAL),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Snorlax\'s typical day consists of nothing more than eating and sleeping. It is such a docile Pokémon that there are children who use its expansive belly as a place to play.',
@@ -1271,7 +1273,7 @@ class PokeData
         ],
         144 => [
             'name' => 'Articuno',
-            'type' => array('ice','flying'),
+            'type' => array(PokeType::TYPE_ICE,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Articuno is a legendary bird Pokémon that can control ice. The flapping of its wings chills the air. As a result, it is said that when this Pokémon flies, snow will fall.',
@@ -1279,7 +1281,7 @@ class PokeData
         ],
         145 => [
             'name' => 'Zapdos',
-            'type' => array('electric','flying'),
+            'type' => array(PokeType::TYPE_ELECTRIC,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Zapdos is a legendary bird Pokémon that has the ability to control electricity. It usually lives in thunderclouds. The Pokémon gains power if it is stricken by lightning bolts.',
@@ -1287,7 +1289,7 @@ class PokeData
         ],
         146 => [
             'name' => 'Moltres',
-            'type' => array('fire','flying'),
+            'type' => array(PokeType::TYPE_FIRE,PokeType::TYPE_FLYING),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Dragonair stores an enormous amount of energy inside its body. It is said to alter weather conditions in its vicinity by discharging energy from its crystals on its neck and tail.',
@@ -1295,7 +1297,7 @@ class PokeData
         ],
         147 => [
             'name' => 'Dratini',
-            'type' => array('dragon'),
+            'type' => array(PokeType::TYPE_DRAGON),
             'from' => NULL,
             'to' => 148,
             'story' => 'Dratini continually molts and sloughs off its old skin. It does so because the life energy within its body steadily builds to reach uncontrollable levels.',
@@ -1303,7 +1305,7 @@ class PokeData
         ],
         148 => [
             'name' => 'Dragonair',
-            'type' => array('dragon'),
+            'type' => array(PokeType::TYPE_DRAGON),
             'from' => 147,
             'to' => 149,
             'story' => 'Dragonair stores an enormous amount of energy inside its body. It is said to alter weather conditions in its vicinity by discharging energy from its crystals on its neck and tail.',
@@ -1311,7 +1313,7 @@ class PokeData
         ],
         149 => [
             'name' => 'Dragonite',
-            'type' => array('dragon','flying'),
+            'type' => array(PokeType::TYPE_DRAGON,PokeType::TYPE_FLYING),
             'from' => 148,
             'to' => NULL,
             'story' => 'Dragonite is capable of circling the globe in just 16 hours. It is a kindhearted Pokémon that leads lost and foundering ships in a storm to the safety of land.',
@@ -1319,7 +1321,7 @@ class PokeData
         ],
         150 => [
             'name' => 'Mewtwo',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => NULL,
             'story' => 'Mewtwo is a Pokémon that was created by genetic manipulation. However, even though the scientific power of humans created this Pokémon\'s body, they failed to endow Mewtwo with a compassionate heart.',
@@ -1327,15 +1329,13 @@ class PokeData
         ],
         151 => [
             'name' => 'Mew',
-            'type' => array('psychic'),
+            'type' => array(PokeType::TYPE_PSYCHIC),
             'from' => NULL,
             'to' => NULL,
             'story' => '	Mew is said to possess the genetic composition of all Pokémon. It is capable of making itself invisible at will, so it entirely avoids notice even if it approaches people.',
             'tips' => 'Add...',
         ],
     ];
-
-
     
     public function createPokeTypes()
     {
@@ -1347,14 +1347,6 @@ class PokeData
     }
     public function createPokeKinds()
     {
-        return 'I MADE IT ';
+        return $this->pokeKinds;
     }
-    public function doJunkyStuff($some)
-    {
-
-        return 'you face looks like the |'.$some .'|aksdjfhaksh';
-    }
-    /** REMAINING
-     *
-     */
 }

@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PokeType
 {
+    const TOTAL = 18;
     const TYPE_BUG = 'bug';
     const TYPE_GRASS = 'grass';
     const TYPE_DARK = 'dark';
@@ -29,7 +30,7 @@ class PokeType
     const TYPE_WATER = 'water';
     const TYPE_NORMAL = 'normal';
     const TYPE_ELECTRIC = 'electric';
-
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

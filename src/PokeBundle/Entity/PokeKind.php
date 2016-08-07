@@ -17,6 +17,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PokeKind
 {
+    const TOTAL = 151;
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -36,7 +38,7 @@ class PokeKind
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="PokeBundle\Entity\PokeType", inversedBy="pokeKinds")
+     * @ORM\ManyToMany(targetEntity="PokeBundle\Entity\PokeType", mappedBy="pokeKinds")
      */
     protected $pokeTypes;
 
@@ -56,37 +58,40 @@ class PokeKind
     protected $evolvesFrom;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="array", nullable=true)
      */
     protected $tips;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="array", nullable=true)
      */
     protected $comments;
 
-    /**
-     * @return integer
-     */
-    public function getPokeDexId()
+    public function __construct($dexId, $name, array $pokeTypes, $storyLine=null, $evolvesInto=null, $evolvesFrom=null)
     {
-        return $this->pokeDexId;
-    }
-    
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
+        $this->pokeTypes = new ArrayCollection();
+        $this->pokeDexId = $dexId;
         $this->name = $name;
+
+        if($pokeTypes) {
+            if(is_array($pokeTypes)) {
+                foreach($pokeTypes as $type) {
+                    $this->addPokeType($type);
+                }
+            } else {
+                $this->addPokeType($pokeTypes);
+            }
+        }
+
+        if($storyLine){
+            $this->storyLine = $storyLine;
+        }
+        if($evolvesInto){
+            $this->evolvesInto = $evolvesInto;
+        }
+        if($evolvesFrom){
+            $this->evolvesFrom = $evolvesFrom;
+        }
     }
 
     /**
@@ -97,24 +102,59 @@ class PokeKind
         return $this->pokeTypes;
     }
 
-    /**
-     * @param PokeType|ArrayCollection $pokeTypes
-     */
-    public function setPokeTypes($pokeTypes)
+    public function getPokeTypesArray()
     {
-        if(is_array($pokeTypes)) {
-            foreach($pokeTypes as $pokeType) {
-                if(!$this->pokeTypes->contains($pokeType)) {
-                    $this->pokeTypes->add($pokeType);
-                }
-            }
-        } elseif ($pokeTypes) {
-            if(!$this->pokeTypes->contains($pokeTypes)) {
-                $this->pokeTypes->add($pokeTypes);
-            }
-        } else {
-            //bad request.
+        return $this->pokeTypes->toArray();
+    }
+
+    /**
+     * @param PokeType $type
+     */
+    public function addPokeType(PokeType $type)
+    {
+        if(!$this->pokeTypes->contains($type)){
+            $this->pokeTypes->add($type);
         }
+    }
+
+    public function removePokeType(PokeType $type)
+    {
+        if($this->pokeTypes->contains($type)){
+            $this->pokeTypes->removeElement($type);
+        }
+    }
+
+    /**
+     * @return integer
+     */
+    public function getPokeDexId()
+    {
+        return $this->pokeDexId;
+    }
+
+    /**
+     * @param int $pokeDexId
+     */
+    public function setPokeDexId($pokeDexId)
+    {
+        $this->pokeDexId = $pokeDexId;
+    }
+
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -164,39 +204,4 @@ class PokeKind
     {
         $this->evolvesFrom = $evolvesFrom;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getTips()
-    {
-        return $this->tips;
-    }
-
-    /**
-     * @param mixed $tips
-     */
-    public function setTips($tips)
-    {
-        $this->tips = $tips;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-    /**
-     * @todo turn into objects
-     * @param mixed $comments
-     */
-    public function setComments($comments)
-    {
-        $this->comments = $comments;
-    }
-
-
 }

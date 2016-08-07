@@ -1,0 +1,13 @@
+{% extends 'pokeBase.html.twig' %}
+{% block body %}
+
+<div class="container">
+    <h1>WELCOME TO SPOT SCENE POKE DEX</h1>
+    <div class="row">
+        {% for item in items %}
+            {% include 'pokemon/_pokeListShow.html.twig' with { 'id': loop.index, 'mon': item } %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
